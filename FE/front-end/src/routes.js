@@ -15,15 +15,39 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import UserProfile from "views/Patiens/UserProfile.js";
+import Booking from "views/Patiens/Booking.js";
+import MedicalRecord from "views/Patiens/MedicalRecord.js";
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
-import MedicalRecord from "views/Drugstores/MedicalRecord";
+import MedicalRecord1 from "views/Drugstores/MedicalRecord";
 import DoctorProfile from "views/Doctor/DoctorProfile";
-import MedicalRecord1 from "views/Doctor/MedicalRecord";
+import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 
 const dashboardRoutes = [
+  {
+    path: "/user",
+    name: "User Profile",
+    icon: "nc-icon nc-circle-09",
+    component: UserProfile,
+    layout: "/admin"
+  },
+  {
+    path: "/booking",
+    name: "Booking",
+    icon: "nc-icon nc-tap-01",
+    component: Booking,
+    layout: "/admin"
+  },
+  {
+    path: "/medicalmecord",
+    name: "Medical Record",
+    icon: "nc-icon nc-album-2",
+    component: MedicalRecord,
+    layout: "/admin"
+  },
   {
     path: "/Drugstores/DrugstoresProfile",
     name: "Drugstores Profile",
@@ -42,7 +66,7 @@ const dashboardRoutes = [
     path: "/Drugstores/MedicalRecord",
     name: "Medical Record",
     icon: "nc-icon nc-notes",
-    component: MedicalRecord,
+    component: MedicalRecord1,
     layout: "/admin"
   },
   {
@@ -56,7 +80,7 @@ const dashboardRoutes = [
     path: "/Doctor/MedicalRecord",
     name: "Medical Record",
     icon: "nc-icon nc-notes",
-    component: MedicalRecord1,
+    component: MedicalRecord2,
     layout: "/admin"
   },
   {
