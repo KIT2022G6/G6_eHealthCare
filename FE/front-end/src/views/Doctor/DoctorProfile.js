@@ -21,7 +21,7 @@ function DoctorProfile() {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Edit Profile</Card.Title>
+                <Card.Title as="h4">Thông tin cá nhân</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
