@@ -19,24 +19,26 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "patientID", unique = true)
-    private Long patID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Id
+	@Column(name = "patientID", unique = true)
+	private String patientID;
 
-    @Column(nullable = false)
-    private String pFullName, pAddress, pPhone, pBloodtype;
+	@Column(nullable = false)
+	private String paUsername, paPassword, paFullName, paAddress, paPhone, paBloodtype;
 
-    @Column(nullable = false)
-    private Date pDob;
+	@Column(nullable = false)
+	private Date paDob;
 
-    @Column(nullable = false)
-    private boolean pGender, pRhesus;
+	@Column(nullable = false)
+	private boolean paGender, paRhesus;
 
-    @Column(columnDefinition = "INT(3) UNSIGNED ")
-    private int pWeight, pHeight, pHeartrate;
+	@Column(columnDefinition = "INT(3) UNSIGNED ")
+	private int paWeight, paHeight, paHeartrate;
 
-    @ManyToOne
-    @JoinColumn(name = "insuranceID")
-    private Insurance insID;
+	@ManyToOne
+	@JoinColumn(name = "insuranceID")
+	private Insurance insID;
 }

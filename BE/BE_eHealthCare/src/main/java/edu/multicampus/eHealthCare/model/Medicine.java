@@ -13,10 +13,12 @@ import java.util.Set;
 @Setter
 @ToString
 public class Medicine {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Id
     @Column(name = "medicineID", unique = true)
-    private Long medID;
+    private String medicineID;
 
     private String mName;
 
@@ -24,6 +26,6 @@ public class Medicine {
     private int mSto, mPri;
 
 
-    @OneToMany(mappedBy = "medID", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "medicineID", cascade = CascadeType.ALL)
     private Set<MedInvoice> listMedInvoice;
 }

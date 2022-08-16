@@ -12,11 +12,24 @@ import java.sql.Date;
 @Setter
 @ToString
 public class TotalInvoice {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "InvoiceID", unique = true)
-    private Long iInvID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private Long papID, mediID;
-    private Date tPri;
+	@Id
+	@Column(name = "invoiceID", unique = true)
+	private String invoiceID;
+
+	private Date tPrint;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "papID", nullable = false)
+	private Appointment papID;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "medInvoiceID", nullable = false)
+	private MedInvoice medInvoiceID;
+	
+	@ManyToOne
+	@JoinColumn(name = "pharmacyID")
+	private Pharmacy pharmacyID;
 }
