@@ -19,10 +19,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Department {
-	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Id
 	@Column(name = "departmentID", unique = true)
-	private Long depID;
+	private String depID;
 
 	private String dName;
 	private int dCharge;
