@@ -18,20 +18,24 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Insurance {
+public class Pharmacy {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Id
-	@Column(name = "insuranceID", unique = true)
-	private String insID;
+	@Column(name = "pharmacyID", unique = true)
+	private String pharmacyID;
+	
+	@Column(nullable = false)
+	private String phUsername, phPassword;
+	
+	@Column(name = "phName")
+	private String phName;
 
-	@Column(name = "iName")
-	private String iName;
+	@Column(name = "phDescription")
+	private String phDes;
 
-	@Column(name = "iDescription")
-	private String iDes;
-
-	@OneToMany(mappedBy = "insID", cascade = CascadeType.ALL)
-	private Set<Patient> listPatient;
+	@OneToMany(mappedBy = "pharmacyID", cascade = CascadeType.ALL)
+	private Set<TotalInvoice> listTotalInvoice;
+	
 }
