@@ -21,7 +21,7 @@ function DrugstoresProfile() {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Edit Profile</Card.Title>
+                <Card.Title as="h4">Thông tin cá nhân</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
@@ -39,7 +39,7 @@ function DrugstoresProfile() {
                     </Col>
                     <Col className="px-1" md="3">
                       <Form.Group>
-                        <label>Username</label>
+                        <label>Tên</label>
                         <Form.Control
                           defaultValue="michael23"
                           placeholder="Username"
@@ -50,7 +50,7 @@ function DrugstoresProfile() {
                     <Col className="pl-1" md="4">
                       <Form.Group>
                         <label htmlFor="exampleInputEmail1">
-                          Email address
+                          Địa chỉ email
                         </label>
                         <Form.Control
                           placeholder="Email"
@@ -62,7 +62,7 @@ function DrugstoresProfile() {
                   <Row>
                     <Col className="pr-1" md="6">
                       <Form.Group>
-                        <label>First Name</label>
+                        <label>Tên</label>
                         <Form.Control
                           defaultValue="Mike"
                           placeholder="Company"
@@ -72,7 +72,7 @@ function DrugstoresProfile() {
                     </Col>
                     <Col className="pl-1" md="6">
                       <Form.Group>
-                        <label>Last Name</label>
+                        <label>Họ</label>
                         <Form.Control
                           defaultValue="Andrew"
                           placeholder="Last Name"
@@ -84,7 +84,7 @@ function DrugstoresProfile() {
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>Address</label>
+                        <label>Địa chỉ</label>
                         <Form.Control
                           defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
                           placeholder="Home Address"
@@ -96,7 +96,7 @@ function DrugstoresProfile() {
                   <Row>
                     <Col className="pr-1" md="4">
                       <Form.Group>
-                        <label>City</label>
+                        <label>Thành phố</label>
                         <Form.Control
                           defaultValue="Mike"
                           placeholder="City"
@@ -106,7 +106,7 @@ function DrugstoresProfile() {
                     </Col>
                     <Col className="px-1" md="4">
                       <Form.Group>
-                        <label>Country</label>
+                        <label>Nơi ở hiện tại</label>
                         <Form.Control
                           defaultValue="Andrew"
                           placeholder="Country"
@@ -127,7 +127,7 @@ function DrugstoresProfile() {
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>About Me</label>
+                        <label>Ghi chú</label>
                         <Form.Control
                           cols="80"
                           defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in

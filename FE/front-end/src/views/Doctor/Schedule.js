@@ -21,16 +21,13 @@ function Schedule() {
           <Col md="12">
             <Card className="strpied-tabled-with-hover">
               <Card.Header>
-                <Card.Title as="h4">Striped Table with Hover</Card.Title>
-                <p className="card-category">
-                  Here is a subtitle for this table
-                </p>
+                <Card.Title as="h4">Lịch làm việc</Card.Title>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
                 <Table className="table-hover table-striped">
                   <thead>
                     <tr>
-                      <th className="border-0">ID</th>
+                      <th className="border-0">STT</th>
                       <th className="border-0">Code Medicine</th>
                       <th className="border-0">Name</th>
                       <th className="border-0">Expiry</th>
