@@ -85,7 +85,7 @@ function Header() {
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                <span className="no-icon">Log out</span>
+                <span className="no-icon">Đăng xuất</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>

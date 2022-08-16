@@ -29,70 +29,70 @@ import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 const dashboardRoutes = [
   {
     path: "/user",
-    name: "User Profile",
+    name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin"
   },
   {
     path: "/booking",
-    name: "Booking",
+    name: "Đặt lịch khám",
     icon: "nc-icon nc-tap-01",
     component: Booking,
     layout: "/admin"
   },
   {
     path: "/medicalmecord",
-    name: "Medical Record",
+    name: "DS hồ sơ bệnh án",
     icon: "nc-icon nc-album-2",
     component: MedicalRecord,
     layout: "/admin"
   },
   {
     path: "/Drugstores/DrugstoresProfile",
-    name: "Drugstores Profile",
+    name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: DrugstoresProfile,
     layout: "/admin"
   },
   {
     path: "/Drugstores/Medicine",
-    name: "Medicine",
+    name: "DS các loại thuốc",
     icon: "nc-icon nc-notes",
     component: Medicine,
     layout: "/admin"
   },
   {
     path: "/Drugstores/MedicalRecord",
-    name: "Medical Record",
+    name: "DS hồ sơ bệnh án",
     icon: "nc-icon nc-notes",
     component: MedicalRecord1,
     layout: "/admin"
   },
   {
     path: "/Doctor/DoctorProfile",
-    name: "Doctor Profile",
+    name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: DoctorProfile,
     layout: "/admin"
   },
   {
     path: "/Doctor/MedicalRecord",
-    name: "Medical Record",
+    name: "DS hồ sơ bệnh án",
     icon: "nc-icon nc-notes",
     component: MedicalRecord2,
     layout: "/admin"
   },
   {
     path: "/Doctor/Schedule",
-    name: "Schedule",
+    name: "Lịch làm việc",
     icon: "nc-icon nc-notes",
     component: Schedule,
     layout: "/admin"
   },
   {
     path: "/Doctor/MedicalExaminationList",
-    name: "Medical Examination List",
+    name: "DS Lịch khám bệnh",
     icon: "nc-icon nc-notes",
     component: MedicalExaminationList,
     layout: "/admin"
