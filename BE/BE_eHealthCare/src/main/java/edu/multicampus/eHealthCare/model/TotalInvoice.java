@@ -22,8 +22,8 @@ public class TotalInvoice {
 	private Date tPrint;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "papID", nullable = false)
-	private Appointment papID;
+	@JoinColumn(name = "appointmentID", nullable = false)
+	private Appointment appointmentID;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "medInvoiceID", nullable = false)

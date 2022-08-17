@@ -27,10 +27,7 @@ public class MedicalRecord {
     @JoinColumn(name = "prescriptionID", nullable = false)
     private Prescription prescriptionID;
 
-    @ManyToOne
-	@JoinColumn(name = "appointmentID")
-	private Appointment appointmentID;
-	
-    
-    
+
+    @OneToMany(mappedBy = "recordID", cascade = CascadeType.ALL)
+    private Set<Appointment> listAppointment;
 }

@@ -30,6 +30,8 @@ public class Appointment {
 	@ManyToOne
 	@JoinColumn(name = "patientID")
 	private Patient patID;
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "recordID")
+	private MedicalRecord recordID;
 }
