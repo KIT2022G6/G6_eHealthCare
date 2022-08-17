@@ -33,7 +33,7 @@ function Department() {
                 <Col xs={10} md={6} className="text-end">
                     <Link to='#'>
                         <Button variant="outline-info" className="mb-5">
-                            Thêm mới bảo hiểm
+                            Thêm mới khoa khám
                         </Button>
                     </Link>
                 </Col>
@@ -44,7 +44,7 @@ function Department() {
                     <Col md="12">
                         <Card className="strpied-tabled-with-hover">
                             <Card.Header>
-                                <Card.Title as="h4">Danh sách bảo hiểm</Card.Title>
+                                <Card.Title as="h4">Danh sách khoa khám</Card.Title>
                                 {/* <p className="card-category">
                                     Dữ liệu cập nhật mới nhất...
                                 </p> */}
@@ -54,8 +54,9 @@ function Department() {
                                     <thead>
                                         <tr>
                                             <th className="border-0">STT</th>
-                                            <th className="border-0">Mã bảo hiểm</th>
-                                            <th className="border-0">Loại bảo hiểm</th>
+                                            <th className="border-0">Mã khoa khám</th>
+                                            <th className="border-0">Tên khoa</th>
+                                            <th className="border-0">Phí khám</th>
                                             <th className="border-0">Mô tả</th>
                                             <th colSpan={2}>More</th>
                                         </tr>
@@ -66,6 +67,7 @@ function Department() {
                                             <td>ADM1</td>
                                             <td>Dakota Rice</td>
                                             <td>$36,738</td>
+                                            <td>Khoa chữa bệnh cho bác sĩ khoa khác</td>
                                             <td><i class="fa fa-edit" aria-hidden="true"></i></td>
                                             <td><i class="fa fa-trash" aria-hidden="true"></i></td>
 
