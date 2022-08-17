@@ -23,9 +23,15 @@ public class DoctorController {
 		return docRepo.findAll();
 	}
 
+//	@GetMapping("/doctor/{id}")
+//	public ResponseEntity<Doctor> getDoctorById(@PathVariable String id) {
+//		Doctor doc = docRepo.findDocByDocId(id);
+//		return ResponseEntity.ok(doc);
+//	}
+//	
 	@GetMapping("/doctor/{id}")
 	public ResponseEntity<Doctor> getDoctorById(@PathVariable String id) {
-		Doctor doc = docRepo.findDocByDepId(id);
+		Doctor doc = docRepo.findDoctorByDoctorID(id);
 		return ResponseEntity.ok(doc);
 	}
 }

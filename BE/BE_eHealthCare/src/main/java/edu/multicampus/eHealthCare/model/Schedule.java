@@ -1,7 +1,6 @@
 package edu.multicampus.eHealthCare.model;
 
-
-
+import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,16 +17,18 @@ import javax.persistence.OneToMany;
 public class Schedule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Id
 	@Column(name = "scheduleID", unique = true)
 	private String schID;
 
-	private String sWor, sShi;
-	
+	private Date date;
+
+	private String sShi;
+
 	@OneToMany(mappedBy = "schID", cascade = CascadeType.ALL)
 	private Set<Doctor> listDoctor;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_doctorID")
 	private Doctor doctorID;
@@ -48,13 +49,7 @@ public class Schedule {
 		this.schID = schID;
 	}
 
-	public String getsWor() {
-		return sWor;
-	}
-
-	public void setsWor(String sWor) {
-		this.sWor = sWor;
-	}
+	
 
 	public String getsShi() {
 		return sShi;
@@ -80,18 +75,16 @@ public class Schedule {
 		this.doctorID = doctorID;
 	}
 
-	public Schedule(String schID, String sWor, String sShi, Set<Doctor> listDoctor, Doctor doctorID) {
+	public Schedule() {
+		super();
+	}
+
+	public Schedule(String schID, Date sWor, String sShi, Set<Doctor> listDoctor, Doctor doctorID) {
 		super();
 		this.schID = schID;
-		this.sWor = sWor;
 		this.sShi = sShi;
 		this.listDoctor = listDoctor;
 		this.doctorID = doctorID;
 	}
-
-	public Schedule() {
-		super();
-	}
-	
 	
 }
