@@ -35,6 +35,8 @@ root.render(
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Redirect from="/" to="/admin/dashboard" />
+      {/* <Route path="/patient" render={(props) => <PatientLayout {...props} />} />
+      <Redirect from="/" to="/patient/user" /> */}
     </Switch>
   </BrowserRouter>
 );

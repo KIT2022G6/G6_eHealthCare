@@ -15,9 +15,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import UserProfile from "views/Patiens/UserProfile.js";
-import Booking from "views/Patiens/Booking.js";
-import MedicalRecord from "views/Patiens/MedicalRecord.js";
+import UserProfile from "views/Patient/UserProfile.js";
+import Booking from "views/Patient/Booking.js";
+import MedicalRecord from "views/Patient/MedicalRecord.js";
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
@@ -43,7 +43,7 @@ const dashboardRoutes = [
   },
   {
     path: "/medicalmecord",
-    name: "DS hồ sơ bệnh án",
+    name: "Hồ sơ bệnh án",   
     icon: "nc-icon nc-album-2",
     component: MedicalRecord,
     layout: "/admin"

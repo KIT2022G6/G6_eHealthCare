@@ -41,4 +41,108 @@ public class Patient {
 	@ManyToOne
 	@JoinColumn(name = "insuranceID")
 	private Insurance insID;
+
+	public String getPaUsername() {
+		return paUsername;
+	}
+
+	public void setPaUsername(String paUsername) {
+		this.paUsername = paUsername;
+	}
+
+	public String getPaPassword() {
+		return paPassword;
+	}
+
+	public void setPaPassword(String paPassword) {
+		this.paPassword = paPassword;
+	}
+
+	public String getPaFullName() {
+		return paFullName;
+	}
+
+	public void setPaFullName(String paFullName) {
+		this.paFullName = paFullName;
+	}
+
+	public String getPaAddress() {
+		return paAddress;
+	}
+
+	public void setPaAddress(String paAddress) {
+		this.paAddress = paAddress;
+	}
+
+	public String getPaPhone() {
+		return paPhone;
+	}
+
+	public void setPaPhone(String paPhone) {
+		this.paPhone = paPhone;
+	}
+
+	public String getPaBloodtype() {
+		return paBloodtype;
+	}
+
+	public void setPaBloodtype(String paBloodtype) {
+		this.paBloodtype = paBloodtype;
+	}
+
+	public Date getPaDob() {
+		return paDob;
+	}
+
+	public void setPaDob(Date paDob) {
+		this.paDob = paDob;
+	}
+
+	public boolean isPaGender() {
+		return paGender;
+	}
+
+	public void setPaGender(boolean paGender) {
+		this.paGender = paGender;
+	}
+
+	public boolean isPaRhesus() {
+		return paRhesus;
+	}
+
+	public void setPaRhesus(boolean paRhesus) {
+		this.paRhesus = paRhesus;
+	}
+
+	public int getPaWeight() {
+		return paWeight;
+	}
+
+	public void setPaWeight(int paWeight) {
+		this.paWeight = paWeight;
+	}
+
+	public int getPaHeight() {
+		return paHeight;
+	}
+
+	public void setPaHeight(int paHeight) {
+		this.paHeight = paHeight;
+	}
+
+	public int getPaHeartrate() {
+		return paHeartrate;
+	}
+
+	public void setPaHeartrate(int paHeartrate) {
+		this.paHeartrate = paHeartrate;
+	}
+
+	public Insurance getInsID() {
+		return insID;
+	}
+
+	public void setInsID(Insurance insID) {
+		this.insID = insID;
+	}
 }
