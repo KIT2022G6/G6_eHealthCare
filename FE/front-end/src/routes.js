@@ -27,6 +27,8 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
+import Insurance from "views/Admin/Insurance";
+import Department from "views/Admin/Department";
 
 const dashboardRoutes = [
   {
@@ -111,6 +113,20 @@ const dashboardRoutes = [
     name: "DS Lịch khám bệnh",
     icon: "nc-icon nc-notes",
     component: MedicalExaminationList,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/Insurance",
+    name: "Bảo hiểm",
+    icon: "nc-icon nc-notes",
+    component: Insurance,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/Department",
+    name: "Khoa khám",
+    icon: "nc-icon nc-notes",
+    component: Department,
     layout: "/admin"
   }
 ];
