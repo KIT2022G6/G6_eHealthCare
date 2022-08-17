@@ -34,5 +34,5 @@ public class Doctor {
 	private Schedule schID;
 
 	@OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
-	private Set<Appointment> listPaper;
+	private Set<Appointment> listAppointment;
 }

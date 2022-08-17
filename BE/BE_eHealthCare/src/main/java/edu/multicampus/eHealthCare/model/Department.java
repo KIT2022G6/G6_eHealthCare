@@ -15,13 +15,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter
-@Setter
-@ToString
 public class Department {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Id
 	@Column(name = "departmentID", unique = true)
 	private String depID;
@@ -34,4 +31,75 @@ public class Department {
 
 	@OneToMany(mappedBy = "depID", cascade = CascadeType.ALL)
 	private Set<Doctor> listDoctor;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDepID() {
+		return depID;
+	}
+
+	public void setDepID(String depID) {
+		this.depID = depID;
+	}
+
+	public String getdName() {
+		return dName;
+	}
+
+	public void setdName(String dName) {
+		this.dName = dName;
+	}
+
+	public int getdCharge() {
+		return dCharge;
+	}
+
+	public void setdCharge(int dCharge) {
+		this.dCharge = dCharge;
+	}
+
+	public String getdDes() {
+		return dDes;
+	}
+
+	public void setdDes(String dDes) {
+		this.dDes = dDes;
+	}
+
+	public Set<Doctor> getListDoctor() {
+		return listDoctor;
+	}
+
+	public void setListDoctor(Set<Doctor> listDoctor) {
+		this.listDoctor = listDoctor;
+	}
+
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Department(String depID, String dName, int dCharge, String dDes, Set<Doctor> listDoctor) {
+		super();
+		this.depID = depID;
+		this.dName = dName;
+		this.dCharge = dCharge;
+		this.dDes = dDes;
+		this.listDoctor = listDoctor;
+	}
+
+	public Department(String depID, String dName, int dCharge, String dDes) {
+		super();
+		this.depID = depID;
+		this.dName = dName;
+		this.dCharge = dCharge;
+		this.dDes = dDes;
+	}
+
 }
