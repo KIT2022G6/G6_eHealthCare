@@ -23,6 +23,7 @@ import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
 import DoctorProfile from "views/Doctor/DoctorProfile";
 import MedicalRecord2 from "views/Doctor/MedicalRecord";
+import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 
@@ -43,8 +44,8 @@ const dashboardRoutes = [
   },
   {
     path: "/medicalmecord",
-    name: "DS hồ sơ bệnh án",
-    icon: "nc-icon nc-album-2",
+    name: "Hồ sơ bệnh án của tôi",
+    icon: "nc-icon nc-notes",
     component: MedicalRecord,
     layout: "/admin"
   },
@@ -81,6 +82,13 @@ const dashboardRoutes = [
     name: "DS hồ sơ bệnh án",
     icon: "nc-icon nc-notes",
     component: MedicalRecord2,
+    layout: "/admin"
+  },
+  {
+    path: "/Doctor/MakeMedicalRecords",
+    name: "Lập hồ sơ bệnh án",
+    icon: "nc-icon nc-notes",
+    component: MakeMedicalRecords,
     layout: "/admin"
   },
   {
