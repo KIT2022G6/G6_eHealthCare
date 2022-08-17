@@ -22,14 +22,14 @@ function Booking() {
                     <Col md="8">
                         <Card>
                             <Card.Header>
-                                <Card.Title as="h4">Booking</Card.Title>
+                                <Card.Title as="h4">Đặt lịch khám</Card.Title>
                             </Card.Header>
                             <Card.Body>
                                 <Form>
                                     <Row>
                                         <Col className="pr-1" md="6">
                                             <Form.Group>
-                                                <label>Hello ...</label>
+                                                <label>Xin chào ...</label>
                                                 <Form.Control
                                                     defaultValue="Luu Nguyen"
                                                     disabled
@@ -62,8 +62,8 @@ function Booking() {
                                                 <thead>
                                                     <tr>
                                                         <th className="border-0">#</th>
-                                                        <th className="border-0">Full Name</th>
-                                                        <th className="border-0">Room</th>
+                                                        <th className="border-0">Họ và tên</th>
+                                                        <th className="border-0">Khoa</th>
                                                         <th className="border-0">Số người chờ</th>
                                                         <th className="border-0">Chọn bác sĩ này</th>
                                                     </tr>
@@ -112,7 +112,7 @@ function Booking() {
                                     <Row>
                                         <Col md="12">
                                             <Form.Group>
-                                                <label>Note</label>
+                                                <label>Ghi chú</label>
                                                 <Form.Control
                                                     cols="80"
                                                     defaultValue=""
@@ -128,7 +128,7 @@ function Booking() {
                                         type="submit"
                                         variant="info"
                                     >
-                                        Save
+                                        Đăng kí
                                     </Button>
                                     <div className="clearfix"></div>
                                 </Form>

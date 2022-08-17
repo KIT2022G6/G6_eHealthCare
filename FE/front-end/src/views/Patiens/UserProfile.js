@@ -21,14 +21,14 @@ function User() {
           <Col md="8">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Edit Profile</Card.Title>
+                <Card.Title as="h4">Thông tin cá nhân</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>
                   <Row>
                     <Col className="pr-1" md="6">
                       <Form.Group>
-                        <label>First Name</label>
+                        <label>Họ</label>
                         <Form.Control
                           defaultValue="Luu"
                           placeholder="First Name"
@@ -38,7 +38,7 @@ function User() {
                     </Col>
                     <Col className="pl-1" md="6">
                       <Form.Group>
-                        <label>Last Name</label>
+                        <label>Tên</label>
                         <Form.Control
                           defaultValue="Nguyen"
                           placeholder="Last Name"
@@ -52,18 +52,18 @@ function User() {
                     <Col className="pr-1" md="6">
                       <Form.Group>
                         <div class="form-check">
-                          <label>Gender</label>
+                          <label>Giới Tính</label>
                           <Row>
                             <Col xs={6}><div className="form-chec">
                               <input className="form-check-input" type="radio" name="flexRadioDefault" />
                               <label className="form-check-label" style={{ paddingLeft: "9px" }}>
-                                Male
+                                Nam
                               </label>
                             </div></Col>
                             <Col xs={6}><div className="form-chec">
                               <input className="form-check-input" type="radio" name="flexRadioDefault" />
                               <label className="form-check-label" style={{ paddingLeft: "9px" }}>
-                                Female
+                                Nữ
                               </label>
                             </div></Col>
                           </Row>
@@ -72,7 +72,7 @@ function User() {
                     </Col>
                     <Col className="pl-1" md="6">
                       <Form.Group>
-                        <label>DOB</label>
+                        <label>Ngày, tháng, năm sinh</label>
                         <Form.Control
                           type="date"
                         ></Form.Control>
@@ -83,7 +83,7 @@ function User() {
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>Address</label>
+                        <label>Địa chỉ</label>
                         <Form.Control
                           defaultValue="Mỹ Đình"
                           placeholder="Home Address"
@@ -96,16 +96,17 @@ function User() {
                   <Row>
                     <Col className="pr-1" md="4">
                       <Form.Group>
-                        <label>Phone</label>
+                        <label>Số điện thoại</label>
                         <Form.Control
                           placeholder="Phone"
                           type="text"
                         ></Form.Control>
                       </Form.Group>
                     </Col>
+                    <Col className="pr-1" md="2"></Col>
                     <Col className="px-1" md="4">
                       <Form.Group>
-                        <label>Country</label>
+                        <label>Nơi ở hiện tại</label>
                         <Form.Control
                           placeholder="Country"
                           type="text"
@@ -117,7 +118,7 @@ function User() {
                   <Row>
                     <Col className="pr-1" md="4">
                       <Form>
-                        <label>Rhesus</label>
+                        <label>Nhóm máu</label>
                         <Row>
                           <Col xs={6}><div className="form-chec">
                             <input className="form-check-input" type="radio" name="flexRadioDefault" />
@@ -148,7 +149,7 @@ function User() {
                     </Col>
                     <Col className="px-1" md="4">
                       <Form.Group>
-                        <label>Rhesus</label>
+                        <label>Kháng nguyên</label>
                         <Row>
                           <Col xs={6}><div className="form-chec">
                             <input className="form-check-input" type="radio" name="flexRadioDefault" />
@@ -170,7 +171,7 @@ function User() {
                   <Row>
                     <Col>
                       <Form.Group>
-                        <label>Weight</label>
+                        <label>Chiều cao</label>
                         <div class="input-group mb-6">
                           <input type="text" class="form-control" />
                           <span class="input-group-text">cm</span>
@@ -179,7 +180,7 @@ function User() {
                     </Col>
                     <Col>
                       <Form.Group>
-                        <label>Weight</label>
+                        <label>Cân nặng</label>
                         <div class="input-group mb-6">
                           <input type="text" class="form-control" />
                           <span class="input-group-text">kg</span>
@@ -188,7 +189,7 @@ function User() {
                     </Col>
                     <Col>
                       <Form.Group>
-                        <label>Heart rate</label>
+                        <label>Nhịp tim</label>
                         <div class="input-group mb-6">
                           <input type="text" class="form-control" />
                           <span class="input-group-text">bpm</span>
@@ -202,7 +203,7 @@ function User() {
                   <Row>
                     <Col md="12">
                       <Form.Group>
-                        <label>About Me</label>
+                        <label>Ghi chú</label>
                         <Form.Control
                           cols="80"
                           defaultValue=""
@@ -218,7 +219,7 @@ function User() {
                     type="submit"
                     variant="info"
                   >
-                    Update Profile
+                    Sửa thông tin cá nhân
                   </Button>
                   <div className="clearfix"></div>
                 </Form>
