@@ -10,13 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter
-@Setter
 @ToString
 public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +37,25 @@ public class Patient {
 	@ManyToOne
 	@JoinColumn(name = "insuranceID")
 	private Insurance insID;
+
+	public Patient() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(String patientID) {
+		this.patientID = patientID;
+	}
 
 	public String getPaUsername() {
 		return paUsername;
@@ -143,6 +158,23 @@ public class Patient {
 	}
 
 	public void setInsID(Insurance insID) {
+		this.insID = insID;
+	}
+
+	public Patient(String patientID, String paUsername, String paPassword, String paFullName, String paAddress, String paPhone, String paBloodtype, Date paDob, boolean paGender, boolean paRhesus, int paWeight, int paHeight, int paHeartrate, Insurance insID) {
+		this.patientID = patientID;
+		this.paUsername = paUsername;
+		this.paPassword = paPassword;
+		this.paFullName = paFullName;
+		this.paAddress = paAddress;
+		this.paPhone = paPhone;
+		this.paBloodtype = paBloodtype;
+		this.paDob = paDob;
+		this.paGender = paGender;
+		this.paRhesus = paRhesus;
+		this.paWeight = paWeight;
+		this.paHeight = paHeight;
+		this.paHeartrate = paHeartrate;
 		this.insID = insID;
 	}
 }
