@@ -25,28 +25,26 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentRepository depRepository;
 
-	@GetMapping("/department")
+	@GetMapping("/department") //OK
 	public List<Department> getAllDepartments() {
 		return depRepository.findAll();
 	}
 
-	@PostMapping("/department")
+	@PostMapping("/department") //OK
 	public Department createDep(@RequestBody Department dep) {
 		return depRepository.save(dep);
 	}
 
-	@GetMapping("/department/{id}")
+	@GetMapping("/department/{id}") //OK
 	public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
 		Department dep = depRepository.findDepByDepId(id);
 
 		return ResponseEntity.ok(dep);
 	}
 
-	@PutMapping("/department/{id}")
-	public ResponseEntity<Department> updateDep(@PathVariable Long id, @RequestBody Department depDetails) {
-		Department dep = depRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Department not found with id: " + id));
-		dep.setDepID(depDetails.getDepID());
+	@PutMapping("/department/{id}") //OK
+	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
+		Department dep = depRepository.findDepByDepId(id);
 		dep.setdName(depDetails.getdName());
 		dep.setdCharge(depDetails.getdCharge());
 		dep.setdDes(depDetails.getdDes());
@@ -54,10 +52,9 @@ public class DepartmentController {
 		return ResponseEntity.ok(updatedDep);
 	}
 
-	@DeleteMapping("/employees/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id) {
-		Department dep = depRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Department not found with id: " + id));
+	@DeleteMapping("/department/{id}") //OK
+	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable String id) {
+		Department dep = depRepository.findDepByDepId(id);
 		depRepository.delete(dep);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);

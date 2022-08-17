@@ -8,8 +8,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
 @ToString
 public class Schedule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +19,5 @@ public class Schedule {
 
 	private String sWor, sShi;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "fk_doctorID")
-//	private Doctor doctorID;
-	
-	@OneToMany(mappedBy = "schID", cascade = CascadeType.ALL)
-	private Set<Doctor> listDoctor;
+
 }

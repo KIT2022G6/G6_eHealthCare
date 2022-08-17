@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.multicampus.eHealthCare.model.Doctor;
-import edu.multicampus.eHealthCare.repository.DoctorRepository;
+import edu.multicampus.eHealthCare.model.Schedule;
+import edu.multicampus.eHealthCare.repository.ScheduleRepository;
 
 @RestController
 @RequestMapping("/api/v1/")
-public class DoctorController {
+public class ScheduleController {
 	@Autowired
-	private DoctorRepository docRepo;
+	private ScheduleRepository schRepository;
 
-	@GetMapping("/doctor")
-	public List<Doctor> getAllDoctors() {
-		return docRepo.findAll();
+	@GetMapping("/schedule")
+	public List<Schedule> getAllSchedule() {
+		return schRepository.findAll();
 	}
 
-	@GetMapping("/doctor/{id}")
-	public ResponseEntity<Doctor> getDoctorById(@PathVariable String id) {
-		Doctor doc = docRepo.findDocByDepId(id);
-		return ResponseEntity.ok(doc);
+	@GetMapping("/schedule/{id}")
+	public ResponseEntity<Schedule> getScheduleById(@PathVariable String id) {
+		Schedule sch = schRepository.findSchById(id);
+
+		return ResponseEntity.ok(sch);
 	}
+
 }
