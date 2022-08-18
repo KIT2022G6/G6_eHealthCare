@@ -26,7 +26,7 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 import Insurance from "views/Admin/Insurance";
-import Department from "views/Admin/Department";
+import DepartmentTest from "views/Admin/DepartmentTest";
 
 const dashboardRoutes = [
   {
@@ -110,7 +110,7 @@ const dashboardRoutes = [
     path: "/Admin/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
-    component: Department,
+    component: DepartmentTest,
     layout: "/admin"
   }
 ];
