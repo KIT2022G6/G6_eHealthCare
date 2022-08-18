@@ -2,6 +2,7 @@ package edu.multicampus.eHealthCare.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -34,5 +35,6 @@ public class Doctor {
 	private Schedule schID;
 
 	@OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Appointment> listAppointment;
 }

@@ -1,5 +1,6 @@
 package edu.multicampus.eHealthCare.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -24,6 +25,7 @@ public class Medicine {
     private int mSto, mPri;
 
     @OneToMany(mappedBy = "medicineID", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<MedInvoice> listMedInvoice;
 
     public Long getId() {

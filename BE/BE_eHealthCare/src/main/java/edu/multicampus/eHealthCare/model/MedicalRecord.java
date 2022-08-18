@@ -1,5 +1,6 @@
 package edu.multicampus.eHealthCare.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -29,5 +30,6 @@ public class MedicalRecord {
 
 
     @OneToMany(mappedBy = "recordID", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Appointment> listAppointment;
 }

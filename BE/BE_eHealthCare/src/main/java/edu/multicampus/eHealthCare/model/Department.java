@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,6 +31,7 @@ public class Department {
 	private String dDes;
 
 	@OneToMany(mappedBy = "depID", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Doctor> listDoctor;
 
 	public Long getId() {
