@@ -3,6 +3,10 @@ package edu.multicampus.eHealthCare.model;
 import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -129,4 +133,7 @@ public class Doctor implements Serializable {
 		super();
 	}
 
+	// @OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
+	// @JsonIgnore
+	// private Set<Appointment> listAppointment;
 }
