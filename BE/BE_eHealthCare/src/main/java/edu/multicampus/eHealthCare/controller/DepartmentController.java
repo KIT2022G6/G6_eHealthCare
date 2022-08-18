@@ -37,14 +37,14 @@ public class DepartmentController {
 
 	@GetMapping("/department/{id}") //OK
 	public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 
 		return ResponseEntity.ok(dep);
 	}
 
 	@PutMapping("/department/{id}") //OK
 	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 		dep.setdName(depDetails.getdName());
 		dep.setdCharge(depDetails.getdCharge());
 		dep.setdDes(depDetails.getdDes());
@@ -54,7 +54,7 @@ public class DepartmentController {
 
 	@DeleteMapping("/department/{id}") //OK
 	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 		depRepository.delete(dep);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);

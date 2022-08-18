@@ -1,17 +1,33 @@
 package edu.multicampus.eHealthCare.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-public class Department {
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
+public class Department implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -25,7 +41,9 @@ public class Department {
 	@Column(name = "dDescription")
 	private String dDes;
 
-	@OneToMany(mappedBy = "depID", cascade = CascadeType.ALL)
+	@JsonBackReference
+	@Fetch(FetchMode.JOIN)
+	@OneToMany(mappedBy = "departmentID", cascade = CascadeType.ALL)
 	private Set<Doctor> listDoctor;
 
 	public Long getId() {

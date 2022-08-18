@@ -30,18 +30,22 @@ public class ScheduleController {
 
 	@GetMapping("/schedule/{id}") // OK
 	public ResponseEntity<Schedule> getScheduleById(@PathVariable String id) {
-		Schedule sch = schRepository.findSchById(id);
+		Schedule sch = schRepository.findSchByScheduleID(id);
 		return ResponseEntity.ok(sch);
 	}
 	
-	//Tra cuu lich lam viec theo ngay
+	//Lich lam viec theo ngay
+	@GetMapping("/schedule/date/{daywork}")
+	public List<Schedule> getScheduleByDate(@PathVariable Date daywork) {
+		return schRepository.findAllDoctorBySchDate(daywork);
+	}
+	
+	//Lich lam viec theo khoang thoi gian
 	@GetMapping("/schedule/time")
-	public List<Schedule> getScheduleByDate(@RequestParam("s") Date date1,@RequestParam("e") Date date2){
+	public List<Schedule> getScheduleByTime(@RequestParam("s") Date date1,@RequestParam("e") Date date2){
 //		List<Schedule> sch = schRepository.findScheByDate(date1, date2);
-		List<Schedule> sch = schRepository.findScheduleByDateBetween(date1, date2);
-		
+		List<Schedule> sch = schRepository.findScheduleBySchDateBetween(date1, date2);
 		return sch;
-		
 	}
 	
 	@PostMapping("/schedule") //OK
@@ -51,10 +55,10 @@ public class ScheduleController {
 	
 	@PutMapping("/schedule/{id}") //OK
 	public ResponseEntity<Schedule> updateSch(@PathVariable String id, @RequestBody Schedule schDetails) {
-		Schedule sch = schRepository.findSchById(id);
-//		sch.setsWor(schDetails.getDate());
-		sch.setsShi(schDetails.getsShi());
-		sch.setListDoctor(schDetails.getListDoctor());
+		Schedule sch = schRepository.findSchByScheduleID(id);
+		sch.setSchDate(schDetails.getSchDate());
+		sch.setSchShift(schDetails.getSchShift());
+//		sch.setListDoctor(schDetails.getListDoctor());
 		Schedule updatedSch = schRepository.save(sch);
 		return ResponseEntity.ok(updatedSch);
 	}
