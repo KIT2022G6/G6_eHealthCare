@@ -2,7 +2,15 @@ import { Badge, Button, Card, Form, Navbar, Nav, Container, Row, Col, Table } fr
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 // import ReactPaginate from "react-paginate";
-function Insurance() {
+import InsuranceService from "../../services/InsuranceService";
+
+class Insurance extends Component {
+    componentDidMount() {
+        InsuranceService.getInsurance().then((res) => {
+        this.setState({ insurance: res.data });
+        });
+    }
+render(){
     return (
         <div className="container">
             <Row>
@@ -61,11 +69,11 @@ function Insurance() {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {this.state.insurance.map((ins) => (
                                         <tr>
-                                            <td>1</td>
-                                            <td>ADM1</td>
-                                            <td>Dakota Rice</td>
-                                            <td>$36,738</td>
+                                            <td>{ins.insID}</td>
+                                            <td>{ins.iName}</td>
+                                            <td>{ins.iDes}</td>
                                             <td><i class="fa fa-edit" aria-hidden="true"></i></td>
                                             <td><i class="fa fa-trash" aria-hidden="true"></i></td>
 
@@ -74,7 +82,7 @@ function Insurance() {
                                             </Button></Link></td>
                                             <td><Button variant="outline-danger" onClick={() => deleteUser(item.id)}>Delete</Button></td> */}
                                         </tr>
-
+                                    ))}
                                     </tbody>
                                 </Table>
                             </Card.Body>
@@ -107,5 +115,6 @@ function Insurance() {
         </div>
     )
 }
-
+    
+}
 export default Insurance;
