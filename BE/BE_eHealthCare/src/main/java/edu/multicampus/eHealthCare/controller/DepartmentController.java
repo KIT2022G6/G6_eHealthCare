@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.multicampus.eHealthCare.exception.ResourceNotFoundException;
 import edu.multicampus.eHealthCare.model.Department;
 import edu.multicampus.eHealthCare.repository.DepartmentRepository;
 
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 public class DepartmentController {
@@ -37,14 +38,14 @@ public class DepartmentController {
 
 	@GetMapping("/department/{id}") //OK
 	public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 
 		return ResponseEntity.ok(dep);
 	}
 
 	@PutMapping("/department/{id}") //OK
 	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 		dep.setdName(depDetails.getdName());
 		dep.setdCharge(depDetails.getdCharge());
 		dep.setdDes(depDetails.getdDes());
@@ -54,7 +55,7 @@ public class DepartmentController {
 
 	@DeleteMapping("/department/{id}") //OK
 	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepId(id);
+		Department dep = depRepository.findDepByDepID(id);
 		depRepository.delete(dep);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
