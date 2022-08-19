@@ -25,7 +25,7 @@ import DoctorProfile from "views/Doctor/DoctorProfile";
 import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
-import Insurance from "views/Admin/Insurance";
+// import Insurance from "views/Admin/Insurance";
 import DepartmentTest from "views/Admin/DepartmentTest";
 
 const dashboardRoutes = [
@@ -99,13 +99,13 @@ const dashboardRoutes = [
     component: MedicalExaminationList,
     layout: "/admin"
   },
-  {
-    path: "/Admin/Insurance",
-    name: "Bảo hiểm",
-    icon: "nc-icon nc-notes",
-    component: Insurance,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/Admin/Insurance",
+  //   name: "Bảo hiểm",
+  //   icon: "nc-icon nc-notes",
+  //   component: Insurance,
+  //   layout: "/admin"
+  // },
   {
     path: "/Admin/Department",
     name: "Khoa khám",
