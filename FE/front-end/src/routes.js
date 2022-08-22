@@ -31,6 +31,7 @@ import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 import DepartmentTest from "views/Admin/DepartmentTest";
 import Insurance from "views/Admin/Insurance";
 import Prescription from "views/Admin/Prescription";
+import EditDepartment from "views/Admin/EditDepartment";
 
 const dashboardRoutes = [
   {
@@ -118,6 +119,14 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+
+    path: "/Admin/Insurance",
+    name: "Bảo hiểm",
+    icon: "nc-icon nc-notes",
+    component: Insurance,
+    layout: "/admin"
+  },
+  {
     path: "/Admin/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
@@ -136,6 +145,20 @@ const dashboardRoutes = [
     name: " QL Đơn thuốc",
     icon: "nc-icon nc-notes",
     component: Prescription,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/:depID",
+    name: "Edit Khoa khám",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/new",
+    name: "Tạo Khoa khám mới",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
     layout: "/admin"
   }
 ];
