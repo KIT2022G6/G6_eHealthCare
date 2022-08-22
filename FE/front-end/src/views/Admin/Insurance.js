@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import DepartmentService from '../../services/DepartmentService'
+import InsuranceService from '../../services/InsuranceService'
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const DepartmentTest = () => {
+const Insurance = () => {
     const [data, setData] = useState();
     const [direction, setDirection] = useState(1);
     const [currentItems, setCurrentItems] = useState(null);
@@ -14,7 +14,7 @@ const DepartmentTest = () => {
     const [page, setPage] = useState(-1);
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        let url = 'http://localhost:8080/api/v1/department';
+        let url = 'http://localhost:8080/api/v1/insurance';
         console.log("url", url)
         // if (searchBook.length > 0) {
         //     url = url + '?search=' + searchBook;
@@ -36,7 +36,7 @@ const DepartmentTest = () => {
 
     useEffect(() => {
         if (data != null) {
-            let itemsPerPage = 8;
+            let itemsPerPage = 100;
             const starOffset = page * itemsPerPage;
             let endOffset = (page + 1) * itemsPerPage;
             if (endOffset > data.length) {
@@ -51,15 +51,14 @@ const DepartmentTest = () => {
         }
     }, [page]);
 
-    let listDepartment = [];
+    let listInsurance = [];
     if (currentItems != null) {
-        listDepartment = currentItems.map((item, id) => (
+        listInsurance = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.dName}</td>
-                <td>{item.depID}</td>
-                <td>{item.dCharge}</td>
-                <td>{item.dDes}</td>
+                <td>{item.iDes}</td>
+                <td>{item.insID}</td>
+                <td>{item.iName}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -86,7 +85,7 @@ const DepartmentTest = () => {
     return (
         <div className="container">
             <hr />
-            <h1>Khoa khám</h1>
+            <h1>DS Bảo hiểm</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -126,20 +125,17 @@ const DepartmentTest = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên khoa</th>
-                        <th>Mã khoa</th>
+                        <th>Tên Bảo hiểm</th>
+                        <th>Mã Bảo hiểm</th>
                         <th>Giá tiền</th>
-                        <th>Ghi chú</th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listDepartment}
+                    {listInsurance}
                 </tbody>
             </Table>
         </div>
     )
 }
 
-export default DepartmentTest
+export default Insurance

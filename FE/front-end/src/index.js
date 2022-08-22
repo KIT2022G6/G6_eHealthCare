@@ -36,13 +36,14 @@ root.render(
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
 
       <Redirect from="/" to="/admin/dashboard" />
-      
+
       <Redirect from="/" to="/dashboard" />
 
       {/* <Route path="/patient" render={(props) => <PatientLayout {...props} />} />
       <Redirect from="/" to="/patient/user" /> */}
 
       <Redirect from="/" to="/admin/Admin/Insurance" />
+      
 
     </Switch>
   </BrowserRouter>

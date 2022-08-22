@@ -29,6 +29,7 @@ import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 
 import DepartmentTest from "views/Admin/DepartmentTest";
+import Insurance from "views/Admin/Insurance";
 
 const dashboardRoutes = [
   {
@@ -122,6 +123,13 @@ const dashboardRoutes = [
     component: DepartmentTest,
     layout: "/admin"
   },
+  {
+    path: "/Admin/Insurance",
+    name: "DS Bảo hiểm",
+    icon: "nc-icon nc-notes",
+    component: Insurance,
+    layout: "/admin"
+  }
 ];
 
 export default dashboardRoutes;
