@@ -15,10 +15,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import UserProfile from "views/Patiens/UserProfile.js";
+import UserProfile from "views/Patient/UserProfile.js";
 import Booking from "views/Patient/Booking.js";
 import MedicalRecord from "views/Patient/MedicalRecord.js";
-import History from "views/Patiens/History.js";
+import History from "views/Patient/History.js";
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
