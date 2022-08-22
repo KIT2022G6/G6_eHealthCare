@@ -18,11 +18,13 @@
 import UserProfile from "views/Patient/UserProfile.js";
 import Booking from "views/Patient/Booking.js";
 import MedicalRecord from "views/Patient/MedicalRecord.js";
+import History from "views/Patiens/History.js";
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
 import DoctorProfile from "views/Doctor/DoctorProfile";
 import MedicalRecord2 from "views/Doctor/MedicalRecord";
+import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 import Insurance from "views/Admin/Insurance";
@@ -30,14 +32,14 @@ import DepartmentTest from "views/Admin/DepartmentTest";
 
 const dashboardRoutes = [
   {
-    path: "/user",
+    path: "/Patiens/UserProfile",
     name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin"
   },
   {
-    path: "/booking",
+    path: "/Patiens/Booking",
     name: "Đặt lịch khám",
     icon: "nc-icon nc-tap-01",
     component: Booking,
@@ -47,7 +49,17 @@ const dashboardRoutes = [
     path: "/medicalmecord",
     name: "Hồ sơ bệnh án",   
     icon: "nc-icon nc-album-2",
+    path: "/Patiens/MedicalRecord",
+    name: "Bệnh án của tôi",
+    icon: "nc-icon nc-notes",
     component: MedicalRecord,
+    layout: "/admin"
+  },
+  {
+    path: "/Patiens/History",
+    name: "Lịch sử khám bệnh",
+    icon: "nc-icon nc-notes",
+    component:History,
     layout: "/admin"
   },
   {
@@ -86,6 +98,13 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+    path: "/Doctor/MakeMedicalRecords",
+    name: "Lập hồ sơ bệnh án",
+    icon: "nc-icon nc-notes",
+    component: MakeMedicalRecords,
+    layout: "/admin"
+  },
+  {
     path: "/Doctor/Schedule",
     name: "Lịch làm việc",
     icon: "nc-icon nc-notes",
@@ -112,7 +131,7 @@ const dashboardRoutes = [
     icon: "nc-icon nc-notes",
     component: DepartmentTest,
     layout: "/admin"
-  }
+  },
 ];
 
 export default dashboardRoutes;
