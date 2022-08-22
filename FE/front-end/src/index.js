@@ -33,11 +33,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/" render={(props) => <AdminLayout {...props} />} />
 
-      <Redirect from="/" to="/admin/Patiens/UserProfile" />
+      <Redirect from="/" to="/Patiens/UserProfile" />
 
-      <Redirect from="/" to="/admin/Admin/Insurance" />
+      <Redirect from="/" to="/Admin/Insurance" />
 
     </Switch>
   </BrowserRouter>

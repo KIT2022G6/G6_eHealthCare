@@ -47,7 +47,7 @@ const dashboardRoutes = [
   },
   {
     path: "/Patiens/MedicalRecord",
-    name: "Hồ sơ bệnh án của tôi",
+    name: "Bệnh án của tôi",
     icon: "nc-icon nc-notes",
     component: MedicalRecord,
     layout: "/admin"
@@ -128,7 +128,7 @@ const dashboardRoutes = [
     icon: "nc-icon nc-notes",
     component: Department,
     layout: "/admin"
-  }
+  },
 ];
 
 export default dashboardRoutes;
