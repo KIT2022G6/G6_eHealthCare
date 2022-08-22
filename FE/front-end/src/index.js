@@ -25,7 +25,7 @@ import "./assets/css/animate.min.css";
 import "./assets/scss/light-bootstrap-dashboard-react.scss?v=2.0.0";
 import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import PatientLayout from "layouts/Patient.js";
 import AdminLayout from "layouts/Admin.js";
 import EditDepartment from "views/Admin/EditDepartment";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -43,8 +43,11 @@ root.render(
       <Redirect from="/" to="/patient/user" /> */}
 
       <Redirect from="/" to="/admin/Admin/Insurance" />
-      
 
+      <Route path="/patient" element={<PatientLayout />}>
+        {/* <Route index element ={<PatientHome/>} />
+        <Route path="booking" element={<Booking />} /> */}
+      </Route>
     </Switch>
   </BrowserRouter>
 );

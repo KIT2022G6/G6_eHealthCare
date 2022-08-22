@@ -125,7 +125,7 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/Admin/Department",
+    path: "/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
     component: DepartmentTest,

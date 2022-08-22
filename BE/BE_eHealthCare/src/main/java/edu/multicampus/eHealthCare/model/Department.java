@@ -29,6 +29,7 @@ public class Department implements Serializable {
 	private Long id;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "departmentID", unique = true)
 	private String depID;
 
