@@ -27,11 +27,10 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
-
 import DepartmentTest from "views/Admin/DepartmentTest";
+import EditDepartment from "views/Admin/EditDepartment";
 import Insurance from "views/Admin/Insurance";
 import Prescription from "views/Admin/Prescription";
-import EditDepartment from "views/Admin/EditDepartment";
 
 const dashboardRoutes = [
   {
@@ -119,7 +118,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-
     path: "/Admin/Insurance",
     name: "Bảo hiểm",
     icon: "nc-icon nc-notes",
@@ -134,6 +132,20 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+    path: "/edit/:depID",
+    name: "Edit Khoa khám",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/new",
+    name: "Tạo Khoa khám mới",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
+    layout: "/admin"
+  },
+{
     path: "/Admin/Insurance",
     name: "DS Bảo hiểm",
     icon: "nc-icon nc-notes",
