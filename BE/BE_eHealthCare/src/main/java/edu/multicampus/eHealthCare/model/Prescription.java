@@ -40,6 +40,9 @@ public class Prescription {
 		this.listMedInvoice = listMedInvoice;
 	}
 
+	public Prescription() {
+	}
+
 	public Long getId() {
 		return id;
 	}

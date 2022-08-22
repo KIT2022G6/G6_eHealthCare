@@ -30,6 +30,7 @@ import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 
 import DepartmentTest from "views/Admin/DepartmentTest";
 import Insurance from "views/Admin/Insurance";
+import Prescription from "views/Admin/Prescription";
 
 const dashboardRoutes = [
   {
@@ -128,6 +129,13 @@ const dashboardRoutes = [
     name: "DS Bảo hiểm",
     icon: "nc-icon nc-notes",
     component: Insurance,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/Prescription",
+    name: " QL Đơn thuốc",
+    icon: "nc-icon nc-notes",
+    component: Prescription,
     layout: "/admin"
   }
 ];
