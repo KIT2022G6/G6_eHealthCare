@@ -27,6 +27,18 @@ const DepartmentTest = () => {
             })
     }, []);
 
+    const deleteUser = (id) => {
+        fetch('http://localhost:8080/api/v1/department/' + id, {
+            method: 'DELETE',
+        }).then(() => {
+            console.log('delete successful!!');
+            let result = [...data];
+            result = result.filter((item) => {
+                return item.id != id;
+            });
+            setData(result);
+        });
+    };
     useEffect(() => {
         if (data != null) {
             setPage(0);
@@ -55,27 +67,14 @@ const DepartmentTest = () => {
     if (currentItems != null) {
         listDepartment = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.depID}</td>
-                {/* <td>{item.price}</td>
-                <td>{item.category}</td>
-                <td>{item.details_shorts}</td>
-                <td>
-                    <img src={item.image} style={{ height: "40px" }} />
-                </td>
-                <td>{item.publishingYear}</td>
-                <td>{item.amount}</td>
-                <td>
-                    
-                </td> */}
-
-                {/*<td><Link to={'/book/' + item.id}><Button variant="outline-success">*/}
-                {/*    Details*/}
-                {/*</Button></Link></td>*/}
-                <td><Link to="{'/edit/' + item.id}"><Button variant="outline-warning">
+                <td>{item.dName}</td>
+                <td>{item.dCharge}</td>
+                <td>{item.dDes}</td>
+                <td><Link to={'./edit/' + item.depID}><Button variant="outline-warning">
                     Edit
                 </Button></Link></td>
-                <td><Button variant="outline-danger" onClick="{() => deleteUser(item.id)}">Delete</Button></td>
+                <td><Button variant="outline-danger" onClick={() => deleteUser(item.depID)}>Delete</Button></td>
             </tr>
         )
         )
@@ -111,7 +110,7 @@ const DepartmentTest = () => {
                     </div>
                 </Col>
                 <Col xs={10} md={6} className="text-end">
-                    <Link to='/edit/new'>
+                    <Link to='./edit/new'>
                         <Button variant="outline-info" className="mb-5">
                             Add new
                         </Button>
@@ -122,11 +121,10 @@ const DepartmentTest = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th >ID</th>
-                        <th >Name</th>
-                        <th >Price</th>
-                        <th >Category</th>
-
+                        <th>Mã khoa</th>
+                        <th>Tên khoa</th>
+                        <th>Phí khám</th>
+                        <th>Mô tả</th>
                     </tr>
                 </thead>
                 <tbody>

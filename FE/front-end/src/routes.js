@@ -29,6 +29,7 @@ import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 import Insurance from "views/Admin/Insurance";
 import DepartmentTest from "views/Admin/DepartmentTest";
+import EditDepartment from "views/Admin/EditDepartment";
 
 const dashboardRoutes = [
   {
@@ -126,12 +127,26 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/Admin/Department",
+    path: "/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
     component: DepartmentTest,
     layout: "/admin"
   },
+  {
+    path: "/edit/:depID",
+    name: "Edit Khoa khám",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/new",
+    name: "Tạo Khoa khám mới",
+    icon: "nc-icon nc-notes",
+    component: EditDepartment,
+    layout: "/admin"
+  }
 ];
 
 export default dashboardRoutes;

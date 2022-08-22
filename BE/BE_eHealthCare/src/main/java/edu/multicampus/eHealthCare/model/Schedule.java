@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,14 +14,14 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+
+@Data
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Schedule implements Serializable{
 	/**
 	 * 
@@ -49,9 +48,9 @@ public class Schedule implements Serializable{
 
 	private String schShift;
 
-	@JsonBackReference
-	@Fetch(FetchMode.JOIN)
+
 	@OneToMany(mappedBy = "scheduleID", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Doctor> listDoctor;
 
 	public Long getId() {
