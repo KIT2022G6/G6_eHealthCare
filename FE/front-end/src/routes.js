@@ -27,9 +27,10 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
-import Insurance from "views/Admin/Insurance";
 import DepartmentTest from "views/Admin/DepartmentTest";
 import EditDepartment from "views/Admin/EditDepartment";
+import Insurance from "views/Admin/Insurance";
+import Prescription from "views/Admin/Prescription";
 
 const dashboardRoutes = [
   {
@@ -47,9 +48,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/medicalmecord",
-    name: "Hồ sơ bệnh án",   
-    icon: "nc-icon nc-album-2",
     path: "/Patient/MedicalRecord",
     name: "Bệnh án của tôi",
     icon: "nc-icon nc-notes",
@@ -127,7 +125,7 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/Department",
+    path: "/Admin/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
     component: DepartmentTest,
@@ -145,6 +143,20 @@ const dashboardRoutes = [
     name: "Tạo Khoa khám mới",
     icon: "nc-icon nc-notes",
     component: EditDepartment,
+    layout: "/admin"
+  },
+{
+    path: "/Admin/Insurance",
+    name: "DS Bảo hiểm",
+    icon: "nc-icon nc-notes",
+    component: Insurance,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/Prescription",
+    name: " QL Đơn thuốc",
+    icon: "nc-icon nc-notes",
+    component: Prescription,
     layout: "/admin"
   }
 ];

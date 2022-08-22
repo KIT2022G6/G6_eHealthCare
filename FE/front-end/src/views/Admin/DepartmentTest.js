@@ -82,7 +82,7 @@ const DepartmentTest = () => {
     return (
         <div className="container">
             <hr />
-            <h1>Admin</h1>
+            <h1>Khoa khám</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -125,6 +125,7 @@ const DepartmentTest = () => {
                         <th>Tên khoa</th>
                         <th>Phí khám</th>
                         <th>Mô tả</th>
+
                     </tr>
                 </thead>
                 <tbody>

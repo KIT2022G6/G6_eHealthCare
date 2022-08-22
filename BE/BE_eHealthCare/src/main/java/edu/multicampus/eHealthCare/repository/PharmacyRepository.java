@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import edu.multicampus.eHealthCare.model.Pharmacy;
 @Repository
 public interface PharmacyRepository extends JpaRepository<Pharmacy, Long>{
-    @Query(value = "SELECT * FROM pharmacy WHERE pharmacyid =?",
-            nativeQuery = true)
-    public Pharmacy findPharmacyById(String pharmacyID);
+
+    public Pharmacy findPharmacyByPharmacyID(String pharmacyID);
 }
