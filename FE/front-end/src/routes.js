@@ -18,7 +18,7 @@
 import UserProfile from "views/Patient/UserProfile.js";
 import Booking from "views/Patient/Booking.js";
 import MedicalRecord from "views/Patient/MedicalRecord.js";
-import History from "views/Patiens/History.js";
+import History from "views/Patient/History.js";
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
@@ -27,36 +27,33 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
-// import Insurance from "views/Admin/Insurance";
+
 import DepartmentTest from "views/Admin/DepartmentTest";
 
 const dashboardRoutes = [
   {
-    path: "/Patiens/UserProfile",
+    path: "/Patient/UserProfile",
     name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: UserProfile,
     layout: "/admin"
   },
   {
-    path: "/Patiens/Booking",
+    path: "/Patient/Booking",
     name: "Đặt lịch khám",
     icon: "nc-icon nc-tap-01",
     component: Booking,
     layout: "/admin"
   },
   {
-    path: "/medicalmecord",
-    name: "Hồ sơ bệnh án",   
-    icon: "nc-icon nc-album-2",
-    path: "/Patiens/MedicalRecord",
+    path: "/Patient/MedicalRecord",
     name: "Bệnh án của tôi",
     icon: "nc-icon nc-notes",
     component: MedicalRecord,
     layout: "/admin"
   },
   {
-    path: "/Patiens/History",
+    path: "/Patient/History",
     name: "Lịch sử khám bệnh",
     icon: "nc-icon nc-notes",
     component:History,
@@ -118,13 +115,6 @@ const dashboardRoutes = [
     component: MedicalExaminationList,
     layout: "/admin"
   },
-  // {
-  //   path: "/Admin/Insurance",
-  //   name: "Bảo hiểm",
-  //   icon: "nc-icon nc-notes",
-  //   component: Insurance,
-  //   layout: "/admin"
-  // },
   {
     path: "/Admin/Department",
     name: "Khoa khám",
