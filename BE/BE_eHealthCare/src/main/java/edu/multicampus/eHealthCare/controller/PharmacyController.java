@@ -29,9 +29,13 @@ public class PharmacyController {
 
     @GetMapping("/pharmacy/{id}")
     public ResponseEntity<Pharmacy> getMedicineById(@PathVariable String id) {
-        Pharmacy pharmacy = pharmacyRepository.findPharmacyById(id);
+        Pharmacy pharmacy = pharmacyRepository.findPharmacyByPharmacyID(id);
         return ResponseEntity.ok(pharmacy);
     }
+//    public Pharmacy getMedicineById(@PathVariable Long id) {
+//        return pharmacyRepository.findPharmacyById(id);
+//
+//    }
 
     @PutMapping("/pharmacy/{id}")
     public ResponseEntity<Pharmacy> updatePharmacy(@PathVariable Long id, @RequestBody Pharmacy pharmacy) {

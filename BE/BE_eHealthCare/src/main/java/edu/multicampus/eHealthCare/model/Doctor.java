@@ -3,22 +3,18 @@ package edu.multicampus.eHealthCare.model;
 import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Doctor implements Serializable {
+	
+
 	/**
 	 * 
 	 */
@@ -36,8 +32,6 @@ public class Doctor implements Serializable {
 	@Column(columnDefinition = "INT(3) UNSIGNED")
 	private int dAge;
 
-	@JsonIgnore
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "fk_departmentid")
 	private Department departmentID;

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import InsuranceService from '../../services/InsuranceService'
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const Medicine = () => {
+const Prescription = () => {
     const [data, setData] = useState();
     const [direction, setDirection] = useState(1);
     const [currentItems, setCurrentItems] = useState(null);
@@ -14,7 +13,7 @@ const Medicine = () => {
     const [page, setPage] = useState(-1);
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        let url = 'http://localhost:8080/api/v1/medicine';
+        let url = 'http://localhost:8080/api/v1/prescription';
         console.log("url", url)
         // if (searchBook.length > 0) {
         //     url = url + '?search=' + searchBook;
@@ -51,16 +50,15 @@ const Medicine = () => {
         }
     }, [page]);
 
-    let listMedicine = [];
+    let listPrescription = [];
     if (currentItems != null) {
-        listMedicine = currentItems.map((item, id) => (
+        listPrescription = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.medicineID}</td>
-                <td>{item.mName}</td>
-                <td>{item.mExp}</td>
-                <td>{item.mSto}</td>
-                <td>{item.mPri}</td>
+                <td>{item.precriptionID}</td>
+                <td>{item.pAmo}</td>
+                <td>{item.pDos}</td>
+                <td>{item.pDet}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -87,7 +85,7 @@ const Medicine = () => {
     return (
         <div className="container">
             <hr />
-            <h1>DS Các loại thuốc</h1>
+            <h1>DS Bảo hiểm</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -127,19 +125,18 @@ const Medicine = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã loại thuốc</th>
-                        <th>Tên loại thuốc</th>
-                        <th>Hạn sử dụng</th>
-                        <th>Số lượng</th>
-                        <th>Giá tiền</th>
+                        <th>Mã đơn thuốc</th>
+                        <th>Số lượng (Hộp)</th>
+                        <th>Liều lượng (Viên)</th>
+                        <th>Thời gian uống</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listMedicine}
+                    {listPrescription}
                 </tbody>
             </Table>
         </div>
     )
 }
 
-export default Medicine
+export default Prescription
