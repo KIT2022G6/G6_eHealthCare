@@ -31,6 +31,7 @@ import DepartmentTest from "views/Admin/DepartmentTest";
 import EditDepartment from "views/Admin/EditDepartment";
 import Insurance from "views/Admin/Insurance";
 import Prescription from "views/Admin/Prescription";
+import Doctor from "views/Admin/Doctor";
 
 const dashboardRoutes = [
   {
@@ -118,13 +119,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/Admin/Insurance",
-    name: "Bảo hiểm",
-    icon: "nc-icon nc-notes",
-    component: Insurance,
-    layout: "/admin"
-  },
-  {
     path: "/Admin/Department",
     name: "Khoa khám",
     icon: "nc-icon nc-notes",
@@ -132,20 +126,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/edit/:depID",
-    name: "Edit Khoa khám",
-    icon: "nc-icon nc-notes",
-    component: EditDepartment,
-    layout: "/admin"
-  },
-  {
-    path: "/edit/new",
-    name: "Tạo Khoa khám mới",
-    icon: "nc-icon nc-notes",
-    component: EditDepartment,
-    layout: "/admin"
-  },
-{
     path: "/Admin/Insurance",
     name: "DS Bảo hiểm",
     icon: "nc-icon nc-notes",
@@ -160,19 +140,20 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/edit/:depID",
-    name: "Edit Khoa khám",
+    path: "/Admin/Doctor",
+    name: " DS Bác sĩ",
     icon: "nc-icon nc-notes",
-    component: EditDepartment,
+    component: Doctor,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/:depID",
     layout: "/admin"
   },
   {
     path: "/edit/new",
-    name: "Tạo Khoa khám mới",
-    icon: "nc-icon nc-notes",
-    component: EditDepartment,
     layout: "/admin"
-  }
+  },
 ];
 
 export default dashboardRoutes;
