@@ -2,16 +2,11 @@ package edu.multicampus.eHealthCare.model;
 
 import javax.persistence.*;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import java.io.Serializable;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Doctor implements Serializable {
 	
 
@@ -20,11 +15,16 @@ public class Doctor implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	@Id
-	@Column(name = "doctorID", unique = true)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doc_seq") 
+//	@GenericGenerator(
+//	        name = "doc_seq", 
+//	        strategy = "edu.multicampus.eHealthCare.model.CodeGenerator", 
+//	        parameters = {
+//	        	@Parameter(name = CodeGenerator.INCREMENT_PARAM, value = "50"),
+//	            @Parameter(name = CodeGenerator.VALUE_PREFIX_PARAMETER, value = "BS_"),
+//	            @Parameter(name = CodeGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String doctorID;
 
 	@Column(nullable = false)
@@ -43,13 +43,6 @@ public class Doctor implements Serializable {
 //	@OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
 //	private Set<Appointment> listAppointment
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getDoctorID() {
 		return doctorID;

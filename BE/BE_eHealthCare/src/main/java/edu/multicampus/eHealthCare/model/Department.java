@@ -11,26 +11,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import edu.multicampus.eHealthCare.generator.CodeGenerator;
 import lombok.Data;
 
-@Data
 @Entity
-public class Department implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class Department{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "departmentID", unique = true)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dep_seq") 
+	@GenericGenerator(
+	        name = "dep_seq", 
+	        strategy = "edu.multicampus.eHealthCare.generator.CodeGenerator", 
+	        parameters = {
+	        	@Parameter(name = CodeGenerator.INCREMENT_PARAM, value = "50"),
+	            @Parameter(name = CodeGenerator.VALUE_PREFIX_PARAMETER, value = "KK_"),
+	            @Parameter(name = CodeGenerator.NUMBER_FORMAT_PARAMETER, value = "%04d") })
 	private String depID;
 
 	private String dName;
@@ -44,13 +44,6 @@ public class Department implements Serializable {
 	@JsonIgnore
 	private Set<Doctor> listDoctor;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getDepID() {
 		return depID;
