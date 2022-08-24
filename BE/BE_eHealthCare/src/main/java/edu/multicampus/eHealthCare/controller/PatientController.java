@@ -58,10 +58,7 @@ public class PatientController {
     public ResponseEntity<Patient> updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
         Patient pat = patientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found with id: " + id));
-        pat.setPatientID(patient.getPatientID());
-        pat.setPaUsername(patient.getPaUsername());
-        pat.setPaUsername(patient.getPaUsername());
-        pat.setPaPassword(patient.getPaPassword());
+        pat.setId(patient.getId());
         pat.setPaFullName(patient.getPaFullName());
         pat.setPaAddress(patient.getPaAddress());
         pat.setPaPhone(patient.getPaPhone());

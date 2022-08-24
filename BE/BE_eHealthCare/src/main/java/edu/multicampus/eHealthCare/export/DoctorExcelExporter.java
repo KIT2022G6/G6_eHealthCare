@@ -71,9 +71,9 @@ public class DoctorExcelExporter {
 
 			createCell(row, columnCount++, doc.getDoctorID(), style);
 			createCell(row, columnCount++, doc.getdName(), style);
-			createCell(row, columnCount++, doc.getdAge(), style);
-			createCell(row, columnCount++, doc.getdEmail(), style);
-			createCell(row, columnCount++, doc.getdPhone(), style);
+			createCell(row, columnCount++, doc.getDocAge(), style);
+			createCell(row, columnCount++, doc.getDocEmail(), style);
+			createCell(row, columnCount++, doc.getDocPhone(), style);
 
 		}
 	}

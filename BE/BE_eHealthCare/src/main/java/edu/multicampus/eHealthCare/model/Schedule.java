@@ -1,19 +1,16 @@
 package edu.multicampus.eHealthCare.model;
 
 
-import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,53 +18,26 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Schedule implements Serializable {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Schedule{
     @Id
-    @GeneratedValue(generator = "my_generator")  
-    @GenericGenerator(name = "my_generator", strategy = "edu.multicampus.eHealthCare.generator.MyGenerator")
-    @Column(name = "scheduleID")
-    private String scheduleID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long scheduleID;
 
-    private Date schDate;
+//    @Id
+//    @GeneratedValue(generator = "my_generator")  
+//    @GenericGenerator(name = "my_generator", strategy = "edu.multicampus.eHealthCare.generator.MyGenerator")
+//    @Column(name = "scheduleID")
+//    private String scheduleID;
 
-    public Date getSchDate() {
-        return schDate;
-    }
-
-    public void setSchDate(Date schDate) {
-        this.schDate = schDate;
-    }
-
-    private String schShift;
+    private Date scheduleDate;
+    private String scheduleShift;
 
     @OneToMany(mappedBy = "scheduleID", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Doctor> listDoctor;
 
 
-    public String getSchID() {
-        return scheduleID;
-    }
-
-    public void setSchID(String schID) {
-        this.scheduleID = schID;
-    }
-
-    public String getSchShift() {
-        return schShift;
-    }
-
-    public void setSchShift(String schShift) {
-        this.schShift = schShift;
-    }
-
+  
     public Set<Doctor> getListDoctor() {
         return listDoctor;
     }
@@ -80,19 +50,35 @@ public class Schedule implements Serializable {
         super();
     }
 
-    public Schedule(Date schDate, String schShift, Set<Doctor> listDoctor) {
-        super();
-        this.schDate = schDate;
-        this.schShift = schShift;
-        this.listDoctor = listDoctor;
-    }
+	public Schedule(Date scheduleDate, String scheduleShift, Set<Doctor> listDoctor) {
+		super();
+		this.scheduleDate = scheduleDate;
+		this.scheduleShift = scheduleShift;
+		this.listDoctor = listDoctor;
+	}
 
-    public Schedule(Long id, String scheduleID, Date schDate, String schShift, Set<Doctor> listDoctor) {
-        super();
-        this.scheduleID = scheduleID;
-        this.schDate = schDate;
-        this.schShift = schShift;
-        this.listDoctor = listDoctor;
-    }
+	public Long getScheduleID() {
+		return scheduleID;
+	}
+
+	public void setScheduleID(Long scheduleID) {
+		this.scheduleID = scheduleID;
+	}
+
+	public Date getScheduleDate() {
+		return scheduleDate;
+	}
+
+	public void setScheduleDate(Date scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
+
+	public String getScheduleShift() {
+		return scheduleShift;
+	}
+
+	public void setScheduleShift(String scheduleShift) {
+		this.scheduleShift = scheduleShift;
+	}
 
 }

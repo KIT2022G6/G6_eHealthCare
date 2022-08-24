@@ -24,7 +24,7 @@ function Header() {
                 return routes[i].name;
             }
         }
-        return "Brand";
+        return "eHealthCare";
     };
     return (
         <Navbar bg="light" expand="lg" fixed="top" className="m-0 p-0">

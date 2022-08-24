@@ -43,9 +43,9 @@ public class PrescriptionController {
 	@PutMapping("/prescription/{id}") 
 	public ResponseEntity<Prescription> updatePre(@PathVariable String id, @RequestBody Prescription preDetails) {
 		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
-		pre.setpAmo(preDetails.getpAmo());
-		pre.setpDet(preDetails.getpDet());
-		pre.setpDos(preDetails.getpDos());
+		pre.setPreAmount(preDetails.getPreAmount());
+		pre.setPreTime(preDetails.getPreTime());
+		pre.setPreDosage(preDetails.getPreDosage());
 		Prescription updatedPre = preRepo.save(pre);
 		return ResponseEntity.ok(updatedPre);
 		

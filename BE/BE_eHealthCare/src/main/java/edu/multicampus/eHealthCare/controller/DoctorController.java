@@ -50,20 +50,20 @@ public class DoctorController {
 		return docRepo.save(dep);
 	}
 	
-	@PutMapping("/doctor/{id}") //OK
-	public ResponseEntity<Doctor> updateDoc(@PathVariable String id, @RequestBody Doctor docDetails) {
-		Doctor doc = docRepo.findDoctorByDoctorID(id);
-		doc.setdAge(docDetails.getdAge());
-		doc.setdEmail(docDetails.getdEmail());
-		doc.setdName(docDetails.getdName());
-		doc.setdPhone(docDetails.getdPhone());
-		doc.setdUsername(docDetails.getdUsername());
-		doc.setdPassword(docDetails.getdPassword());
-		doc.setDepartmentID(docDetails.getDepartmentID());
-		doc.setScheduleID(docDetails.getScheduleID());
-		Doctor updatedDoc = docRepo.save(doc);
-		return ResponseEntity.ok(updatedDoc);
-	}
+//	@PutMapping("/doctor/{id}") //OK
+//	public ResponseEntity<Doctor> updateDoc(@PathVariable String id, @RequestBody Doctor docDetails) {
+//		Doctor doc = docRepo.findDoctorByDoctorID(id);
+//		doc.setdAge(docDetails.getdAge());
+//		doc.setdEmail(docDetails.getdEmail());
+//		doc.setdName(docDetails.getdName());
+//		doc.setdPhone(docDetails.getdPhone());
+//		doc.setdUsername(docDetails.getdUsername());
+//		doc.setdPassword(docDetails.getdPassword());
+//		doc.setDepartmentID(docDetails.getDepartmentID());
+//		doc.setScheduleID(docDetails.getScheduleID());
+//		Doctor updatedDoc = docRepo.save(doc);
+//		return ResponseEntity.ok(updatedDoc);
+//	}
 
 	@DeleteMapping("/doctor/{id}") //OK
 	public ResponseEntity<Map<String, Boolean>> deleteDoc(@PathVariable String id) {

@@ -3,7 +3,6 @@ package edu.multicampus.eHealthCare.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,60 +10,57 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @ToString
 public class Insurance {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	@Id
-	@Column(name = "insuranceID", unique = true)
-	private String insID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long insuranceID;
 
-	@Column(name = "iName")
-	private String iName;
+	private String insName;
 
-	@Column(name = "iDescription")
-	private String iDes;
+	private String insDes;
 
-	@OneToMany(mappedBy = "insID", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "insuranceID", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<Patient> listPatient;
 
 	public Long getId() {
-		return id;
+		return insuranceID;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.insuranceID = id;
 	}
 
-	public String getInsID() {
-		return insID;
+	
+
+	
+
+	public Long getInsuranceID() {
+		return insuranceID;
 	}
 
-	public void setInsID(String insID) {
-		this.insID = insID;
+	public void setInsuranceID(Long insuranceID) {
+		this.insuranceID = insuranceID;
 	}
 
-	public String getiName() {
-		return iName;
+	public String getInsName() {
+		return insName;
 	}
 
-	public void setiName(String iName) {
-		this.iName = iName;
+	public void setInsName(String insName) {
+		this.insName = insName;
 	}
 
-	public String getiDes() {
-		return iDes;
+	public String getInsDes() {
+		return insDes;
 	}
 
-	public void setiDes(String iDes) {
-		this.iDes = iDes;
+	public void setInsDes(String insDes) {
+		this.insDes = insDes;
 	}
 
 	public Set<Patient> getListPatient() {
@@ -75,10 +71,12 @@ public class Insurance {
 		this.listPatient = listPatient;
 	}
 
-	public Insurance(String insID, String iName, String iDes, Set<Patient> listPatient) {
-		this.insID = insID;
-		this.iName = iName;
-		this.iDes = iDes;
+	
+
+	public Insurance(String insName, String insDes, Set<Patient> listPatient) {
+		super();
+		this.insName = insName;
+		this.insDes = insDes;
 		this.listPatient = listPatient;
 	}
 

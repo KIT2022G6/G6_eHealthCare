@@ -52,11 +52,11 @@ public class DoctorPDFExporter {
 	
 	 private void writeTableData(PdfPTable table) {
 	        for (Doctor doc : listDoctors) {
-	            table.addCell(doc.getDoctorID());
+	            table.addCell(String.valueOf(doc.getDoctorID()));
 	            table.addCell(doc.getdName());
-	            table.addCell(String.valueOf(doc.getdAge()));
-	            table.addCell(doc.getdEmail());
-	            table.addCell(doc.getdPhone());
+	            table.addCell(String.valueOf(doc.getDocAge()));
+	            table.addCell(doc.getDocEmail());
+	            table.addCell(doc.getDocPhone());
 	        }
 	    }
 	     

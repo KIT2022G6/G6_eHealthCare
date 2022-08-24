@@ -64,13 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/patient/**").hasRole("PATIENT")
 				.antMatchers("/api/doctor/**").hasRole("DOCTOR")
 				.antMatchers("/api/pharmacy/**").hasRole("PHARMACY")
-				.anyRequest().authenticated()
-			.and()
-                .logout()
-                .logoutUrl("/api/auth/logout")
-                .deleteCookies("MY_SESSION")
-                .logoutSuccessHandler((new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)))
-                .permitAll();
+				.anyRequest().authenticated();
 		
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}

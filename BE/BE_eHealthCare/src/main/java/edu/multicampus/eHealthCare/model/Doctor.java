@@ -1,22 +1,30 @@
 package edu.multicampus.eHealthCare.model;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Doctor implements Serializable {
-	
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+//public class Doctor implements Serializable {
+public class Doctor{
+//	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long doctorID;
+
+//	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doc_seq") 
 //	@GenericGenerator(
 //	        name = "doc_seq", 
@@ -25,12 +33,12 @@ public class Doctor implements Serializable {
 //	        	@Parameter(name = CodeGenerator.INCREMENT_PARAM, value = "50"),
 //	            @Parameter(name = CodeGenerator.VALUE_PREFIX_PARAMETER, value = "BS_"),
 //	            @Parameter(name = CodeGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
-	private String doctorID;
+//	private String doctorID;
 
 	@Column(nullable = false)
-	private String dName, dPhone, dEmail, dUsername, dPassword;
+	private String docName, docPhone, docEmail;
 	@Column(columnDefinition = "INT(3) UNSIGNED")
-	private int dAge;
+	private int docAge;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_departmentid")
@@ -40,65 +48,61 @@ public class Doctor implements Serializable {
 	@JoinColumn(name = "fk_scheduleID")
 	private Schedule scheduleID;
 
-//	@OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
-//	private Set<Appointment> listAppointment
+//	@OneToMany(mappedBy = "doctorID", cascade = CascadeType.ALL)
+//	@JsonIgnore
+//	private Set<Appointment> listAppointment;
 
+	public String getdName() {
+		return docName;
+	}
 
-	public String getDoctorID() {
+	public Long getDoctorID() {
 		return doctorID;
 	}
 
-	public void setDoctorID(String doctorID) {
+	public void setDoctorID(Long doctorID) {
 		this.doctorID = doctorID;
 	}
 
-	public String getdName() {
-		return dName;
+	public String getDocName() {
+		return docName;
 	}
 
-	public void setdName(String dName) {
-		this.dName = dName;
+	public void setDocName(String docName) {
+		this.docName = docName;
 	}
 
-	public String getdPhone() {
-		return dPhone;
+	public String getDocPhone() {
+		return docPhone;
 	}
 
-	public void setdPhone(String dPhone) {
-		this.dPhone = dPhone;
+	public void setDocPhone(String docPhone) {
+		this.docPhone = docPhone;
 	}
 
-	public String getdEmail() {
-		return dEmail;
+	public String getDocEmail() {
+		return docEmail;
 	}
 
-	public void setdEmail(String dEmail) {
-		this.dEmail = dEmail;
+	public void setDocEmail(String docEmail) {
+		this.docEmail = docEmail;
 	}
 
-	public String getdUsername() {
-		return dUsername;
+	public int getDocAge() {
+		return docAge;
 	}
 
-	public void setdUsername(String dUsername) {
-		this.dUsername = dUsername;
+	public void setDocAge(int docAge) {
+		this.docAge = docAge;
 	}
 
-	public String getdPassword() {
-		return dPassword;
-	}
-
-	public void setdPassword(String dPassword) {
-		this.dPassword = dPassword;
-	}
-
-	public int getdAge() {
-		return dAge;
-	}
-
-	public void setdAge(int dAge) {
-		this.dAge = dAge;
-	}
+//	public Set<Appointment> getListAppointment() {
+//		return listAppointment;
+//	}
+//
+//	public void setListAppointment(Set<Appointment> listAppointment) {
+//		this.listAppointment = listAppointment;
+//	}
 
 	public Department getDepartmentID() {
 		return departmentID;
@@ -120,7 +124,4 @@ public class Doctor implements Serializable {
 		super();
 	}
 
-	// @OneToMany(mappedBy = "docID", cascade = CascadeType.ALL)
-	// @JsonIgnore
-	// private Set<Appointment> listAppointment;
 }

@@ -15,15 +15,12 @@ import lombok.ToString;
 @Entity
 @ToString
 public class Patient {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
 	@Id
-	@Column(name = "patientID", unique = true)
-	private String patientID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long patientID;
 
 	@Column(nullable = false)
-	private String paUsername, paPassword, paFullName, paAddress, paPhone, paBloodtype;
+	private String paFullName, paAddress, paPhone, paBloodtype;
 
 	@Column(nullable = false)
 	private Date paDob;
@@ -35,42 +32,18 @@ public class Patient {
 	private int paWeight, paHeight, paHeartrate;
 
 	@ManyToOne
-	@JoinColumn(name = "insuranceID")
-	private Insurance insID;
+	@JoinColumn(name = "fk_insuranceID")
+	private Insurance insuranceID;
 
 	public Patient() {
 	}
 
 	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getPatientID() {
 		return patientID;
 	}
 
-	public void setPatientID(String patientID) {
-		this.patientID = patientID;
-	}
-
-	public String getPaUsername() {
-		return paUsername;
-	}
-
-	public void setPaUsername(String paUsername) {
-		this.paUsername = paUsername;
-	}
-
-	public String getPaPassword() {
-		return paPassword;
-	}
-
-	public void setPaPassword(String paPassword) {
-		this.paPassword = paPassword;
+	public void setId(Long id) {
+		this.patientID = id;
 	}
 
 	public String getPaFullName() {
@@ -154,17 +127,16 @@ public class Patient {
 	}
 
 	public Insurance getInsID() {
-		return insID;
+		return insuranceID;
 	}
 
 	public void setInsID(Insurance insID) {
-		this.insID = insID;
+		this.insuranceID = insID;
 	}
 
-	public Patient(String patientID, String paUsername, String paPassword, String paFullName, String paAddress, String paPhone, String paBloodtype, Date paDob, boolean paGender, boolean paRhesus, int paWeight, int paHeight, int paHeartrate, Insurance insID) {
-		this.patientID = patientID;
-		this.paUsername = paUsername;
-		this.paPassword = paPassword;
+	public Patient(String paFullName, String paAddress, String paPhone, String paBloodtype, Date paDob,
+			boolean paGender, boolean paRhesus, int paWeight, int paHeight, int paHeartrate, Insurance insID) {
+		super();
 		this.paFullName = paFullName;
 		this.paAddress = paAddress;
 		this.paPhone = paPhone;
@@ -175,6 +147,7 @@ public class Patient {
 		this.paWeight = paWeight;
 		this.paHeight = paHeight;
 		this.paHeartrate = paHeartrate;
-		this.insID = insID;
+		this.insuranceID = insID;
 	}
+
 }

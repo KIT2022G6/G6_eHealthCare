@@ -64,24 +64,24 @@ public class AdminController {
 	}
 
 	@GetMapping("/department/{id}") // OK
-	public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepID(id);
+	public ResponseEntity<Department> getDepartmentById(@PathVariable Long id) {
+		Department dep = depRepository.findDepByDepartmentID(id);
 		return ResponseEntity.ok(dep);
 	}
 
 	@PutMapping("/department/{id}") // OK
-	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
-		Department dep = depRepository.findDepByDepID(id);
-		dep.setdName(depDetails.getdName());
-		dep.setdCharge(depDetails.getdCharge());
-		dep.setdDes(depDetails.getdDes());
+	public ResponseEntity<Department> updateDep(@PathVariable Long id, @RequestBody Department depDetails) {
+		Department dep = depRepository.findDepByDepartmentID(id);
+		dep.setDepName(depDetails.getDepName());
+		dep.setDepCharge(depDetails.getDepCharge());
+		dep.setDepDescription(depDetails.getDepDescription());
 		Department updatedDep = depRepository.save(dep);
 		return ResponseEntity.ok(updatedDep);
 	}
 
 	@DeleteMapping("/department/{id}") // OK
-	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepID(id);
+	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable Long id) {
+		Department dep = depRepository.findDepByDepartmentID(id);
 		depRepository.delete(dep);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
@@ -108,12 +108,10 @@ public class AdminController {
 	@PutMapping("/doctor/{id}") // OK
 	public ResponseEntity<Doctor> updateDoc(@PathVariable String id, @RequestBody Doctor docDetails) {
 		Doctor doc = docRepo.findDoctorByDoctorID(id);
-		doc.setdAge(docDetails.getdAge());
-		doc.setdEmail(docDetails.getdEmail());
-		doc.setdName(docDetails.getdName());
-		doc.setdPhone(docDetails.getdPhone());
-		doc.setdUsername(docDetails.getdUsername());
-		doc.setdPassword(docDetails.getdPassword());
+		doc.setDocAge(docDetails.getDocAge());
+		doc.setDocEmail(docDetails.getDocEmail());
+		doc.setDocName(docDetails.getDocName());
+		doc.setDocPhone(docDetails.getDocPhone());
 		doc.setDepartmentID(docDetails.getDepartmentID());
 		doc.setScheduleID(docDetails.getScheduleID());
 		Doctor updatedDoc = docRepo.save(doc);
@@ -185,9 +183,9 @@ public class AdminController {
 	public ResponseEntity<Insurance> updateInsurance(@PathVariable Long id, @RequestBody Insurance insurance) {
 		Insurance ins = insuranceRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Insurance not found with id: " + id));
-		ins.setInsID(insurance.getInsID());
-		ins.setiName(insurance.getiName());
-		ins.setiDes(insurance.getiDes());
+		ins.setId(insurance.getId());
+		ins.setInsName(insurance.getInsName());
+		ins.setInsDes(insurance.getInsDes());
 		Insurance updateInsurance = insuranceRepository.save(ins);
 		return ResponseEntity.ok(updateInsurance);
 	}
@@ -224,7 +222,7 @@ public class AdminController {
 	@GetMapping("/schedule/time")
 	public List<Schedule> getScheduleByTime(@RequestParam("s") Date date1, @RequestParam("e") Date date2) {
 //		List<Schedule> sch = schRepository.findScheByDate(date1, date2);
-		List<Schedule> sch = schRepository.findScheduleBySchDateBetween(date1, date2);
+		List<Schedule> sch = schRepository.findScheduleByScheduleDateBetween(date1, date2);
 		return sch;
 	}
 
@@ -236,8 +234,8 @@ public class AdminController {
 	@PutMapping("/schedule/{id}") // OK
 	public ResponseEntity<Schedule> updateSch(@PathVariable String id, @RequestBody Schedule schDetails) {
 		Schedule sch = schRepository.findSchByScheduleID(id);
-		sch.setSchDate(schDetails.getSchDate());
-		sch.setSchShift(schDetails.getSchShift());
+		sch.setScheduleDate(schDetails.getScheduleDate());
+		sch.setScheduleShift(schDetails.getScheduleShift());
 //		sch.setListDoctor(schDetails.getListDoctor());
 		Schedule updatedSch = schRepository.save(sch);
 		return ResponseEntity.ok(updatedSch);
