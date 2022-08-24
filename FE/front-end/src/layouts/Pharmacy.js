@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { useLocation, Route, Switch } from "react-router-dom";
 
-import PatientNavbar from "components/Navbars/PatientNavbar";
+import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
 
-import routes from "routesPatient.js";
+import routes from "routesPharmacy.js";
 
 import sidebarImage from "assets/img/sidebar-3.jpg";
 
-function Patient() {
+function Pharmacy() {
   const [image, setImage] = React.useState(sidebarImage);
   const [color, setColor] = React.useState("black");
   const [hasImage, setHasImage] = React.useState(true);
@@ -17,7 +17,7 @@ function Patient() {
   const mainPanel = React.useRef(null);
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/patient") {
+      if (prop.layout === "/pharmacy") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -48,7 +48,7 @@ function Patient() {
       <div className="wrapper">
         <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
         <div className="main-panel" ref={mainPanel}>
-          <PatientNavbar /><br/><br/>
+          <AdminNavbar /><br/><br/>
           <div className="content">
             <Switch>{getRoutes(routes)}</Switch>
           </div>
@@ -59,4 +59,4 @@ function Patient() {
   );
 }
 
-export default Patient;
+export default Pharmacy;

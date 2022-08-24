@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 
-import routes from "routesPatient.js";
+import routes from "routesDoctor.js";
 
 function Header() {
     const location = useLocation();

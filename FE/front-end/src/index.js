@@ -25,29 +25,32 @@ import "./assets/css/animate.min.css";
 import "./assets/scss/light-bootstrap-dashboard-react.scss?v=2.0.0";
 import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import PatientLayout from "layouts/Patient.js";
+
 import Home from "layouts/Home.js";
 import AdminLayout from "layouts/Admin.js";
+import PatientLayout from "layouts/Patient.js";
+import DoctorLayout from "layouts/Doctor.js";
+import PharmacyLayout from "layouts/Pharmacy.js";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      
-      <Redirect from="/" to="/admin/dashboard" />
-
-      <Redirect from="/" to="/dashboard" />
-      <Route path="/home" element={<Home />} />
-      {/* <Route path="/patient" render={(props) => <PatientLayout {...props} />} />
-      <Redirect from="/" to="/patient/user" /> */}
-
-      <Redirect from="/" to="/admin/Admin/Insurance" />
-
-      <Route path="/patient" element={<PatientLayout />}>
-        {/* <Route index element ={<PatientHome/>} />
-        <Route path="booking" element={<Booking />} /> */}
+      <Route exact path="/">
+        <Home />
       </Route>
+      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+
+      {/* <Redirect from="/" to="/admin/dashboard" />
+      <Redirect from="/" to="/dashboard" /> */}
+
+      <Route path="/patient" render={(props) => <PatientLayout {...props} />} />
+      {/* <Redirect from="/patient" to="/patient/profile" /> */}
+
+      <Route path="/doctor" render={(props) => <DoctorLayout {...props} />} />
+
+      <Route path="/pharmacy" render={(props) => <PharmacyLayout {...props} />} />
     </Switch>
   </BrowserRouter>
 );
