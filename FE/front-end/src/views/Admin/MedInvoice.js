@@ -5,7 +5,7 @@ import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const History = () => {
+const MedInvoice = () => {
     const [data, setData] = useState();
     const [direction, setDirection] = useState(1);
     const [currentItems, setCurrentItems] = useState(null);
@@ -13,7 +13,7 @@ const History = () => {
     const [page, setPage] = useState(-1);
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        let url = 'http://localhost:8080/api/v1/appointment';
+        let url = 'http://localhost:8080/api/v1/medInvoice';
         console.log("url", url)
         // if (searchBook.length > 0) {
         //     url = url + '?search=' + searchBook;
@@ -50,14 +50,13 @@ const History = () => {
         }
     }, [page]);
 
-    let listappointment = [];
+    let listMedInvoice = [];
     if (currentItems != null) {
-        listappointment = currentItems.map((item, id) => (
+        listMedInvoice = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.appointmentID}</td>
-                <td>{item.pRoo}</td>
-                <td>{item.pVsi}</td>
+                <td>{item.medInvoiceID}</td>
+                <td><a>Xem chi tiết</a></td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -84,7 +83,7 @@ const History = () => {
     return (
         <div className="container">
             <hr />
-            <h1>Lịch sử khám bệnh</h1>
+            <h1>DS Hóa đơn thuốc</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -124,17 +123,16 @@ const History = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã phòng khám</th>
-                        <th>Số phòng</th>
-                        <th>Ngày khám</th>
+                        <th>Mã hóa đơn</th>
+                        <th>Xem chi tiết đơn thuốc</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listappointment}
+                    {listMedInvoice}
                 </tbody>
             </Table>
         </div>
     )
 }
 
-export default History
+export default MedInvoice

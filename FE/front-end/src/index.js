@@ -27,7 +27,6 @@ import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import AdminLayout from "layouts/Admin.js";
-import EditDepartment from "views/Admin/EditDepartment";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -43,8 +42,6 @@ root.render(
       <Redirect from="/" to="/patient/user" /> */}
 
       <Redirect from="/" to="/admin/Admin/Insurance" />
-      
-
     </Switch>
   </BrowserRouter>
 );

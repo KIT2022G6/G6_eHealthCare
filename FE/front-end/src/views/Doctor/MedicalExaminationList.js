@@ -125,7 +125,7 @@ const MedicalExaminationList = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã bác sĩ</th>
+                        <th>Mã phòng khám</th>
                         <th>Số người đợi</th>
                         <th>Số phòng</th>
                         <th>Ngày khám</th>

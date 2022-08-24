@@ -110,9 +110,9 @@ const Schedule = () => {
                 <thead>
                     <tr>
                         <th >STT</th>
-                        <th >Name</th>
-                        <th >Price</th>
-                        <th >Category</th>
+                        <th >Mã lịch làm việc</th>
+                        <th >Ngày làm việc</th>
+                        <th >Số bác sĩ</th>
 
                     </tr>
                 </thead>

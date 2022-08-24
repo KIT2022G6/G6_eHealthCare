@@ -5,7 +5,7 @@ import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const History = () => {
+const Pharmacy = () => {
     const [data, setData] = useState();
     const [direction, setDirection] = useState(1);
     const [currentItems, setCurrentItems] = useState(null);
@@ -13,7 +13,7 @@ const History = () => {
     const [page, setPage] = useState(-1);
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        let url = 'http://localhost:8080/api/v1/appointment';
+        let url = 'http://localhost:8080/api/v1/pharmacy';
         console.log("url", url)
         // if (searchBook.length > 0) {
         //     url = url + '?search=' + searchBook;
@@ -50,14 +50,16 @@ const History = () => {
         }
     }, [page]);
 
-    let listappointment = [];
+    let listPharmacy = [];
     if (currentItems != null) {
-        listappointment = currentItems.map((item, id) => (
+        listPharmacy = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.appointmentID}</td>
-                <td>{item.pRoo}</td>
-                <td>{item.pVsi}</td>
+                <td>{item.pharmacyID}</td>
+                <td>{item.phUsername}</td>
+                <td>{item.phPassword}</td>
+                <td>{item.phName}</td>
+                <td>{item.phDes}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -84,7 +86,7 @@ const History = () => {
     return (
         <div className="container">
             <hr />
-            <h1>Lịch sử khám bệnh</h1>
+            <h1>DS Quầy thuốc</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -124,17 +126,19 @@ const History = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã phòng khám</th>
-                        <th>Số phòng</th>
-                        <th>Ngày khám</th>
+                        <th>Mã quầy thuốc</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Tên</th>
+                        <th>Địa chỉ</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listappointment}
+                    {listPharmacy}
                 </tbody>
             </Table>
         </div>
     )
 }
 
-export default History
+export default Pharmacy

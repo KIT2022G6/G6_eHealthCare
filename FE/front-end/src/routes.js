@@ -28,10 +28,14 @@ import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
 import DepartmentTest from "views/Admin/DepartmentTest";
-import EditDepartment from "views/Admin/EditDepartment";
 import Insurance from "views/Admin/Insurance";
 import Prescription from "views/Admin/Prescription";
 import Doctor from "views/Admin/Doctor";
+import TotalInvoice from "views/Admin/TotalInvoice";
+import MedInvoice from "views/Admin/MedInvoice";
+import Pharmacy from "views/Admin/Pharmacy";
+
+import Home from "layouts/Home";
 
 const dashboardRoutes = [
   {
@@ -144,6 +148,34 @@ const dashboardRoutes = [
     name: " DS Bác sĩ",
     icon: "nc-icon nc-notes",
     component: Doctor,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/TotalInvoice",
+    name: " DS Hóa đơn",
+    icon: "nc-icon nc-notes",
+    component: TotalInvoice,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/MedInvoice",
+    name: " DS Hóa đơn thuốc",
+    icon: "nc-icon nc-notes",
+    component: MedInvoice,
+    layout: "/admin"
+  },
+  {
+    path: "/Admin/Pharmacy",
+    name: " DS Quầy thuốc",
+    icon: "nc-icon nc-notes",
+    component: Pharmacy,
+    layout: "/admin"
+  },
+  {
+    path: "/layouts/Home",
+    name: " Trang chủ",
+    icon: "nc-icon nc-notes",
+    component: Home,
     layout: "/admin"
   },
   {
