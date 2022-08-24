@@ -28,7 +28,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import PatientLayout from "layouts/Patient.js";
 import Home from "layouts/Home.js";
 import AdminLayout from "layouts/Admin.js";
-import EditDepartment from "views/Admin/EditDepartment";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

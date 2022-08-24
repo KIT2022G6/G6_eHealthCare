@@ -125,7 +125,6 @@ const DepartmentTest = () => {
                         <th>Tên khoa</th>
                         <th>Phí khám</th>
                         <th>Mô tả</th>
-
                     </tr>
                 </thead>
                 <tbody>

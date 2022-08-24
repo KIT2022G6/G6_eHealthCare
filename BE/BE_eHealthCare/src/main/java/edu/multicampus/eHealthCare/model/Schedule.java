@@ -20,11 +20,13 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Schedule implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Schedule implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Id
     @GeneratedValue(generator = "my_generator")  
@@ -42,14 +44,11 @@ public class Schedule implements Serializable{
         this.schDate = schDate;
     }
 
-
     private String schShift;
 
-
-
-	@OneToMany(mappedBy = "scheduleID", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Set<Doctor> listDoctor;
+    @OneToMany(mappedBy = "scheduleID", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Doctor> listDoctor;
 
 
     public String getSchID() {
@@ -75,7 +74,6 @@ public class Schedule implements Serializable{
     public void setListDoctor(Set<Doctor> listDoctor) {
         this.listDoctor = listDoctor;
     }
-
 
     public Schedule() {
         super();

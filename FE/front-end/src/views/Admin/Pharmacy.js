@@ -5,7 +5,7 @@ import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const Prescription = () => {
+const Pharmacy = () => {
     const [data, setData] = useState();
     const [direction, setDirection] = useState(1);
     const [currentItems, setCurrentItems] = useState(null);
@@ -13,7 +13,7 @@ const Prescription = () => {
     const [page, setPage] = useState(-1);
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        let url = 'http://localhost:8080/api/v1/prescription';
+        let url = 'http://localhost:8080/api/v1/pharmacy';
         console.log("url", url)
         // if (searchBook.length > 0) {
         //     url = url + '?search=' + searchBook;
@@ -50,15 +50,16 @@ const Prescription = () => {
         }
     }, [page]);
 
-    let listPrescription = [];
+    let listPharmacy = [];
     if (currentItems != null) {
-        listPrescription = currentItems.map((item, id) => (
+        listPharmacy = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.precriptionID}</td>
-                <td>{item.pAmo}</td>
-                <td>{item.pDos}</td>
-                <td>{item.pDet}</td>
+                <td>{item.pharmacyID}</td>
+                <td>{item.phUsername}</td>
+                <td>{item.phPassword}</td>
+                <td>{item.phName}</td>
+                <td>{item.phDes}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -85,7 +86,7 @@ const Prescription = () => {
     return (
         <div className="container">
             <hr />
-            <h1>QL Đơn thuốc</h1>
+            <h1>DS Quầy thuốc</h1>
             <Row>
                 <Col xs={12} md={6}>
 
@@ -125,18 +126,19 @@ const Prescription = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã đơn thuốc</th>
-                        <th>Số lượng (Hộp)</th>
-                        <th>Liều lượng (Viên)</th>
-                        <th>Thời gian uống</th>
+                        <th>Mã quầy thuốc</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Tên</th>
+                        <th>Địa chỉ</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listPrescription}
+                    {listPharmacy}
                 </tbody>
             </Table>
         </div>
     )
 }
 
-export default Prescription
+export default Pharmacy
