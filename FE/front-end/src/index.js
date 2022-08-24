@@ -26,6 +26,7 @@ import "./assets/scss/light-bootstrap-dashboard-react.scss?v=2.0.0";
 import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import PatientLayout from "layouts/Patient.js";
+import Home from "layouts/Home.js";
 import AdminLayout from "layouts/Admin.js";
 import EditDepartment from "views/Admin/EditDepartment";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -34,11 +35,11 @@ root.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-
+      
       <Redirect from="/" to="/admin/dashboard" />
 
       <Redirect from="/" to="/dashboard" />
-
+      <Route path="/home" element={<Home />} />
       {/* <Route path="/patient" render={(props) => <PatientLayout {...props} />} />
       <Redirect from="/" to="/patient/user" /> */}
 

@@ -3,6 +3,7 @@ package edu.multicampus.eHealthCare.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
 import edu.multicampus.eHealthCare.security.jwt.AuthEntryPointJwt;
 import edu.multicampus.eHealthCare.security.jwt.AuthTokenFilter;
@@ -53,22 +55,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+		http.cors().and().csrf().disable().exceptionHandling()
+			.authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/api/auth/**").permitAll().antMatchers("/api/test/**").permitAll().anyRequest()
-				.authenticated();
+				.antMatchers("/api/auth/**").permitAll()
+				.antMatchers("/api/test/**").permitAll()
+				.antMatchers("/api/admin/**").hasRole("ADMIN")
+				.antMatchers("/api/patient/**").hasRole("PATIENT")
+				.antMatchers("/api/doctor/**").hasRole("DOCTOR")
+				.antMatchers("/api/pharmacy/**").hasRole("PHARMACY")
+				.anyRequest().authenticated()
+			.and()
+                .logout()
+                .logoutUrl("/api/auth/logout")
+                .deleteCookies("MY_SESSION")
+                .logoutSuccessHandler((new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)))
+                .permitAll();
+		
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }
-//	@Bean
-//	CorsConfigurationSource corsConfigurationSource() {
-//		CorsConfiguration configuration = new CorsConfiguration();
-////		configuration.setAllowedOrigins(Arrays.asList("*"));
-////		configuration.setAllowedMethods(Arrays.asList("*"));
-////		configuration.setAllowedHeaders(Arrays.asList("*"));
-////		configuration.setAllowCredentials(true);
-//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//		source.registerCorsConfiguration("/**", configuration);
-//		return source;
-//	}
 
