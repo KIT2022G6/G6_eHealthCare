@@ -70,7 +70,6 @@ function Admin() {
           <div className="content">
             <Switch>{getRoutes(routes)}</Switch>
           </div>
-          <FixedPlugin />
           <Footer />
         </div>
       </div>
