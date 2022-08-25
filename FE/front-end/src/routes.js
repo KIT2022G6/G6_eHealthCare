@@ -36,6 +36,8 @@ import MedInvoice from "views/Admin/MedInvoice";
 import Pharmacy from "views/Admin/Pharmacy";
 
 import Home from "layouts/Home";
+import Login from "layouts/Login";
+import Logout from "layouts/Logout";
 
 const dashboardRoutes = [
   {
@@ -176,6 +178,20 @@ const dashboardRoutes = [
     name: " Trang chủ",
     icon: "nc-icon nc-notes",
     component: Home,
+    layout: "/admin"
+  },
+  {
+    path: "/layouts/Login",
+    name: " Đăng nhập",
+    icon: "nc-icon nc-notes",
+    component: Login,
+    layout: "/admin"
+  },
+  {
+    path: "/layouts/Logout",
+    name: " Đăng xuất",
+    icon: "nc-icon nc-notes",
+    component: Logout,
     layout: "/admin"
   },
   {
