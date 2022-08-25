@@ -61,13 +61,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/layouts/Home",
-    name: " Trang chủ",
-    icon: "nc-icon nc-notes",
-    component: Home,
-    layout: "/admin"
-  },
-  {
     path: "/layouts/Login",
     name: " Đăng nhập",
     icon: "nc-icon nc-notes",

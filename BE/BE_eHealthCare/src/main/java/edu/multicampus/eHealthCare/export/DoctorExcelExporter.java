@@ -70,7 +70,7 @@ public class DoctorExcelExporter {
 			int columnCount = 0;
 
 			createCell(row, columnCount++, doc.getDoctorID(), style);
-			createCell(row, columnCount++, doc.getdName(), style);
+			createCell(row, columnCount++, doc.getDocName(), style);
 			createCell(row, columnCount++, doc.getDocAge(), style);
 			createCell(row, columnCount++, doc.getDocEmail(), style);
 			createCell(row, columnCount++, doc.getDocPhone(), style);
