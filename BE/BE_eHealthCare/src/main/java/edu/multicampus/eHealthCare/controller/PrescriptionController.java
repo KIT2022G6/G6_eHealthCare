@@ -31,7 +31,7 @@ public class PrescriptionController {
 
 	@GetMapping("/prescription/{id}")
 	public ResponseEntity<Prescription> getDoctorById(@PathVariable String id) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		return ResponseEntity.ok(pre);
 	}
 
@@ -42,7 +42,7 @@ public class PrescriptionController {
 
 	@PutMapping("/prescription/{id}") 
 	public ResponseEntity<Prescription> updatePre(@PathVariable String id, @RequestBody Prescription preDetails) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		pre.setPreAmount(preDetails.getPreAmount());
 		pre.setPreTime(preDetails.getPreTime());
 		pre.setPreDosage(preDetails.getPreDosage());
@@ -53,7 +53,7 @@ public class PrescriptionController {
 
 	@DeleteMapping("/prescription/{id}") 
 	public ResponseEntity<Map<String, Boolean>> deletePre(@PathVariable String id) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		preRepo.delete(pre);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);

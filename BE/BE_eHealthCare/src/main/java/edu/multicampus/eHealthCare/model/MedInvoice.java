@@ -11,11 +11,11 @@ public class MedInvoice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long medInvoiceID;
 	@ManyToOne
-	@JoinColumn(name = "precriptionID")
-	private Prescription precriptionID;
+	@JoinColumn(name = "fk_prescriptionID")
+	private Prescription prescriptionID;
 
 	@ManyToOne
-	@JoinColumn(name = "medicineID")
+	@JoinColumn(name = "fk_medicineID")
 	private Medicine medicineID;
 
 	public MedInvoice() {
@@ -24,7 +24,7 @@ public class MedInvoice {
 
 	public MedInvoice(Prescription precriptionID, Medicine medicineID) {
 		super();
-		this.precriptionID = precriptionID;
+		this.prescriptionID = precriptionID;
 		this.medicineID = medicineID;
 	}
 
@@ -37,11 +37,11 @@ public class MedInvoice {
 	}
 
 	public Prescription getPrecriptionID() {
-		return precriptionID;
+		return prescriptionID;
 	}
 
 	public void setPrecriptionID(Prescription precriptionID) {
-		this.precriptionID = precriptionID;
+		this.prescriptionID = precriptionID;
 	}
 
 	public Medicine getMedicineID() {

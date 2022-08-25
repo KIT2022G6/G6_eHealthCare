@@ -9,7 +9,7 @@ import java.util.Set;
 public class Prescription {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long precriptionID;
+	private Long prescriptionID;
 	private int preAmount, preDosage;
 	private String preTime;
 
@@ -17,7 +17,7 @@ public class Prescription {
 	@JsonIgnore
 	private Set<MedicalRecord> listRecord;
 
-	@OneToMany(mappedBy = "precriptionID", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "prescriptionID", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<MedInvoice> listMedInvoice;
 
@@ -36,11 +36,11 @@ public class Prescription {
 	}
 
 	public Long getPrecriptionID() {
-		return precriptionID;
+		return prescriptionID;
 	}
 
 	public void setPrecriptionID(Long precriptionID) {
-		this.precriptionID = precriptionID;
+		this.prescriptionID = precriptionID;
 	}
 
 	public int getPreAmount() {
