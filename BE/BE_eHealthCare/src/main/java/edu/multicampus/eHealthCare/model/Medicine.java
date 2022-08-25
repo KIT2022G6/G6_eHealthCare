@@ -1,8 +1,6 @@
 package edu.multicampus.eHealthCare.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -12,87 +10,78 @@ import java.util.Set;
 @Entity
 @ToString
 public class Medicine {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long medicineID;
 
-    @Id
-    @Column(name = "medicineID", unique = true)
-    private String medicineID;
+	private String medName;
 
-    private String mName;
+	private Date medExp;
+	private int medStorage, medPrice;
 
-    private Date mExp;
-    private int mSto, mPri;
+	@OneToMany(mappedBy = "medicineID", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<MedInvoice> listMedInvoice;
 
-    @OneToMany(mappedBy = "medicineID", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<MedInvoice> listMedInvoice;
+	public Medicine() {
+		super();
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Medicine(String medName, Date medExp, int medStorage, int medPrice, Set<MedInvoice> listMedInvoice) {
+		super();
+		this.medName = medName;
+		this.medExp = medExp;
+		this.medStorage = medStorage;
+		this.medPrice = medPrice;
+		this.listMedInvoice = listMedInvoice;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getMedicineID() {
+		return medicineID;
+	}
 
-    public String getMedicineID() {
-        return medicineID;
-    }
+	public void setMedicineID(Long medicineID) {
+		this.medicineID = medicineID;
+	}
 
-    public void setMedicineID(String medicineID) {
-        this.medicineID = medicineID;
-    }
+	public String getMedName() {
+		return medName;
+	}
 
-    public String getmName() {
-        return mName;
-    }
+	public void setMedName(String medName) {
+		this.medName = medName;
+	}
 
-    public void setmName(String mName) {
-        this.mName = mName;
-    }
+	public Date getMedExp() {
+		return medExp;
+	}
 
-    public Date getmExp() {
-        return mExp;
-    }
+	public void setMedExp(Date medExp) {
+		this.medExp = medExp;
+	}
 
-    public void setmExp(Date mExp) {
-        this.mExp = mExp;
-    }
+	public int getMedStorage() {
+		return medStorage;
+	}
 
-    public int getmSto() {
-        return mSto;
-    }
+	public void setMedStorage(int medStorage) {
+		this.medStorage = medStorage;
+	}
 
-    public void setmSto(int mSto) {
-        this.mSto = mSto;
-    }
+	public int getMedPrice() {
+		return medPrice;
+	}
 
-    public int getmPri() {
-        return mPri;
-    }
+	public void setMedPrice(int medPrice) {
+		this.medPrice = medPrice;
+	}
 
-    public void setmPri(int mPri) {
-        this.mPri = mPri;
-    }
+	public Set<MedInvoice> getListMedInvoice() {
+		return listMedInvoice;
+	}
 
-    public Set<MedInvoice> getListMedInvoice() {
-        return listMedInvoice;
-    }
+	public void setListMedInvoice(Set<MedInvoice> listMedInvoice) {
+		this.listMedInvoice = listMedInvoice;
+	}
 
-    public void setListMedInvoice(Set<MedInvoice> listMedInvoice) {
-        this.listMedInvoice = listMedInvoice;
-    }
-
-    public Medicine() {
-    }
-
-    public Medicine(String medicineID, String mName, Date mExp, int mSto, int mPri, Set<MedInvoice> listMedInvoice) {
-        this.medicineID = medicineID;
-        this.mName = mName;
-        this.mExp = mExp;
-        this.mSto = mSto;
-        this.mPri = mPri;
-        this.listMedInvoice = listMedInvoice;
-    }
 }

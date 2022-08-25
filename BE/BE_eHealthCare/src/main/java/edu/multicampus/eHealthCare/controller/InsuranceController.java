@@ -35,16 +35,16 @@ public class InsuranceController {
         return ResponseEntity.ok(insurance);
     }
 
-    @PutMapping("/insurance/{id}")
-    public ResponseEntity<Insurance> updateInsurance(@PathVariable Long id, @RequestBody Insurance insurance) {
-        Insurance ins = insuranceRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Insurance not found with id: " + id));
-        ins.setInsID(insurance.getInsID());
-        ins.setiName(insurance.getiName());
-        ins.setiDes(insurance.getiDes());
-        Insurance updateInsurance = insuranceRepository.save(ins);
-        return ResponseEntity.ok(updateInsurance);
-    }
+//    @PutMapping("/insurance/{id}")
+//    public ResponseEntity<Insurance> updateInsurance(@PathVariable Long id, @RequestBody Insurance insurance) {
+//        Insurance ins = insuranceRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Insurance not found with id: " + id));
+//        ins.setInsID(insurance.getInsID());
+//        ins.setiName(insurance.getiName());
+//        ins.setiDes(insurance.getiDes());
+//        Insurance updateInsurance = insuranceRepository.save(ins);
+//        return ResponseEntity.ok(updateInsurance);
+//    }
 
     @DeleteMapping("/insurance/{id}")
     public ResponseEntity<Map<String, Boolean>> deletePatient(@PathVariable Long id) {

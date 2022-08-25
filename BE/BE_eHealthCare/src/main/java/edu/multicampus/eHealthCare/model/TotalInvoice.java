@@ -1,25 +1,17 @@
 package edu.multicampus.eHealthCare.model;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Getter
-@Setter
 @ToString
 public class TotalInvoice {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	@Id
-	@Column(name = "invoiceID", unique = true)
-	private String invoiceID;
-
-	private Date tPrint;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long invoiceID;
+	private Date printDate;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "appointmentID", nullable = false)
@@ -28,7 +20,7 @@ public class TotalInvoice {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "medInvoiceID", nullable = false)
 	private MedInvoice medInvoiceID;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "pharmacyID")
 	private Pharmacy pharmacyID;
@@ -36,36 +28,28 @@ public class TotalInvoice {
 	public TotalInvoice() {
 	}
 
-	public TotalInvoice(String invoiceID, Date tPrint, Appointment appointmentID, MedInvoice medInvoiceID, Pharmacy pharmacyID) {
-		this.invoiceID = invoiceID;
-		this.tPrint = tPrint;
-		this.appointmentID = appointmentID;
-		this.medInvoiceID = medInvoiceID;
-		this.pharmacyID = pharmacyID;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getInvoiceID() {
+	public Long getInvoiceID() {
 		return invoiceID;
 	}
 
-	public void setInvoiceID(String invoiceID) {
+	public void setInvoiceID(Long invoiceID) {
 		this.invoiceID = invoiceID;
 	}
 
-	public Date gettPrint() {
-		return tPrint;
+	public Date getPrintDate() {
+		return printDate;
 	}
 
-	public void settPrint(Date tPrint) {
-		this.tPrint = tPrint;
+	public void setPrintDate(Date printDate) {
+		this.printDate = printDate;
+	}
+
+	public TotalInvoice(Date printDate, Appointment appointmentID, MedInvoice medInvoiceID, Pharmacy pharmacyID) {
+		super();
+		this.printDate = printDate;
+		this.appointmentID = appointmentID;
+		this.medInvoiceID = medInvoiceID;
+		this.pharmacyID = pharmacyID;
 	}
 
 	public Appointment getAppointmentID() {

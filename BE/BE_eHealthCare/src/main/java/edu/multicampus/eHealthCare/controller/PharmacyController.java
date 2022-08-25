@@ -42,10 +42,8 @@ public class PharmacyController {
         Pharmacy pha = pharmacyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Pharmacy not found with id: " + id));
         pha.setPharmacyID(pharmacy.getPharmacyID());
-        pha.setPhUsername(pharmacy.getPhUsername());
-        pha.setPhPassword(pharmacy.getPhPassword());
-        pha.setPhName(pharmacy.getPhName());
-        pha.setPhDes(pharmacy.getPhDes());
+        pha.setPharName(pharmacy.getPharName());
+        pha.setPharDescription(pharmacy.getPharDescription());
         pha.setListTotalInvoice(pharmacy.getListTotalInvoice());
         Pharmacy updatePharmacy = pharmacyRepository.save(pha);
         return ResponseEntity.ok(updatePharmacy);

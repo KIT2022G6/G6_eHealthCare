@@ -41,10 +41,10 @@ import java.util.Map;
             Medicine med = medicineRepository.findById(id)
                     .orElseThrow(() -> new ResourceNotFoundException("Medicine not found with id: " + id));
             med.setMedicineID(medicine.getMedicineID());
-            med.setmName(medicine.getmName());
-            med.setmExp(medicine.getmExp());
-            med.setmSto(medicine.getmSto());
-            med.setmPri(medicine.getmPri());
+            med.setMedName(medicine.getMedName());
+            med.setMedExp(medicine.getMedExp());
+            med.setMedStorage(medicine.getMedStorage());
+            med.setMedPrice(medicine.getMedPrice());
             Medicine updateMedicine = medicineRepository.save(med);
             return ResponseEntity.ok(updateMedicine);
         }

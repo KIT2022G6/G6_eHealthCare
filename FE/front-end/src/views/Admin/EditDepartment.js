@@ -79,14 +79,14 @@ const DepartmentEdit = () => {
                                                 <td>
                                                     <strong>Mã khoa khám</strong>
                                                 </td>
-                                                {product.depID ? (
+                                                {product.id ? (
                                                     <td>
                                                         <input
                                                             type="text"
                                                             className="form-control"
                                                             value={product.depID}
                                                             name="depID"
-                                                            placeholder="Readonly input"
+                                                            readOnly
                                                         ></input>
                                                     </td>) : <td>
                                                     <input
