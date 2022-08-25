@@ -1,6 +1,6 @@
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
-import MedicalRecord1 from "views/Drugstores/MedicalRecord";
+import MedicalRecord from "views/Drugstores/MedicalRecord";
 
 const dashboardRoutes = [
   {
@@ -21,7 +21,7 @@ const dashboardRoutes = [
     path: "/medicalRecord",
     name: "DS hồ sơ bệnh án",
     icon: "nc-icon nc-notes",
-    component: MedicalRecord1,
+    component: MedicalRecord,
     layout: "/pharmacy"
   },
 ];

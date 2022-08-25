@@ -54,11 +54,10 @@ const MedicalExaminationList = () => {
     if (currentItems != null) {
         listappointment = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.appointmentID}</td>
-                <td>{item.pOrd}</td>
-                <td>{item.pRoo}</td>
-                <td>{item.pVsi}</td>
+                <td>{item.ordinalNum}</td>
+                <td>{item.room}</td>
+                <td>{item.visitDate}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -125,7 +124,6 @@ const MedicalExaminationList = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã phòng khám</th>
                         <th>Số người đợi</th>
                         <th>Số phòng</th>
                         <th>Ngày khám</th>

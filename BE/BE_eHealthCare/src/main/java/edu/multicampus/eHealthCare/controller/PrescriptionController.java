@@ -30,7 +30,7 @@ public class PrescriptionController {
 	}
 
 	@GetMapping("/prescription/{id}")
-	public ResponseEntity<Prescription> getDoctorById(@PathVariable String id) {
+	public ResponseEntity<Prescription> getDoctorById(@PathVariable Long id) {
 		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		return ResponseEntity.ok(pre);
 	}
@@ -41,7 +41,7 @@ public class PrescriptionController {
 	}
 
 	@PutMapping("/prescription/{id}") 
-	public ResponseEntity<Prescription> updatePre(@PathVariable String id, @RequestBody Prescription preDetails) {
+	public ResponseEntity<Prescription> updatePre(@PathVariable Long id, @RequestBody Prescription preDetails) {
 		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		pre.setPreAmount(preDetails.getPreAmount());
 		pre.setPreTime(preDetails.getPreTime());
@@ -52,7 +52,7 @@ public class PrescriptionController {
 	}
 
 	@DeleteMapping("/prescription/{id}") 
-	public ResponseEntity<Map<String, Boolean>> deletePre(@PathVariable String id) {
+	public ResponseEntity<Map<String, Boolean>> deletePre(@PathVariable Long id) {
 		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		preRepo.delete(pre);
 		Map<String, Boolean> response = new HashMap<>();

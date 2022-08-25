@@ -8,7 +8,7 @@
     "chartist": "0.11.4",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
-    "react": ">=16.8.0",
+    "react": "^18.2.0",
     "react-bootstrap": "2.4.0",
     "react-chartist": "0.14.4",
     "react-dom": ">=16.8.0",
@@ -37,7 +37,6 @@
     "build:scss": "npm run compile:scss && npm run minify:scss"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "browserslist": {

@@ -32,7 +32,7 @@ const App = () => {
     };
     return (
         <div>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
+            {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <Link to={"/"} className="navbar-brand">
                     eHealthCare
                 </Link>
@@ -91,13 +91,13 @@ const App = () => {
                         </li>
                     </div>
                 )}
-            </nav>
-            <div className="container mt-3">
+            </nav> */}
+            <div>
                 <Switch>
-                    <Route path="/" element={<Home />} />
+                    {/* <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/register" element={<Register />} /> */}
                     <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
 
                     {/* <Redirect from="/" to="/admin/dashboard" />
