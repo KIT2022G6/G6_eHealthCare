@@ -60,11 +60,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/test/**").permitAll()
+				.antMatchers("/api/**").permitAll()
 				.antMatchers("/api/admin/**").hasRole("ADMIN")
 				.antMatchers("/api/patient/**").hasRole("PATIENT")
 				.antMatchers("/api/doctor/**").hasRole("DOCTOR")
 				.antMatchers("/api/pharmacy/**").hasRole("PHARMACY");
-				/*.anyRequest().authenticated();*/
+
+//				.anyRequest().authenticated();
+
 		
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}

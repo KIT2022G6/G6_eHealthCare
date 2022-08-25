@@ -6,6 +6,7 @@ import TotalInvoice from "views/Admin/TotalInvoice";
 import MedInvoice from "views/Admin/MedInvoice";
 import Pharmacy from "views/Admin/Pharmacy";
 
+
 import Login from "layouts/Login";
 import Logout from "layouts/Logout";
 
