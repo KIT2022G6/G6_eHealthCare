@@ -22,9 +22,9 @@ public class MedInvoice {
 		super();
 	}
 
-	public MedInvoice(Prescription precriptionID, Medicine medicineID) {
+	public MedInvoice(Prescription prescriptionID, Medicine medicineID) {
 		super();
-		this.prescriptionID = precriptionID;
+		this.prescriptionID = prescriptionID;
 		this.medicineID = medicineID;
 	}
 
@@ -36,12 +36,12 @@ public class MedInvoice {
 		this.medInvoiceID = medInvoiceID;
 	}
 
-	public Prescription getPrecriptionID() {
+	public Prescription getPrescriptionID() {
 		return prescriptionID;
 	}
 
-	public void setPrecriptionID(Prescription precriptionID) {
-		this.prescriptionID = precriptionID;
+	public void setPrescriptionID(Prescription prescriptionID) {
+		this.prescriptionID = prescriptionID;
 	}
 
 	public Medicine getMedicineID() {

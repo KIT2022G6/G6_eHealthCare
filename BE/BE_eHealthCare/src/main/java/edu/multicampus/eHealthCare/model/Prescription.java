@@ -35,12 +35,12 @@ public class Prescription {
 		this.listMedInvoice = listMedInvoice;
 	}
 
-	public Long getPrecriptionID() {
+	public Long getPrescriptionID() {
 		return prescriptionID;
 	}
 
-	public void setPrecriptionID(Long precriptionID) {
-		this.prescriptionID = precriptionID;
+	public void setPrescriptionID(Long prescriptionID) {
+		this.prescriptionID = prescriptionID;
 	}
 
 	public int getPreAmount() {

@@ -46,6 +46,14 @@ public class Department {
 		this.listDoctor = listDoctor;
 	}
 
+	public Department(Long departmentID) {
+		this.departmentID = departmentID;
+	}
+
+	public Department() {
+		
+	}
+
 	public Long getDepartmentID() {
 		return departmentID;
 	}

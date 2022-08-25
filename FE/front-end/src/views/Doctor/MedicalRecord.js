@@ -53,10 +53,9 @@ const MedicalRecord = () => {
   if (currentItems != null) {
     listMedicalRecord = currentItems.map((item, id) => (
       <tr>
-        <td>{item.id}</td>
         <td>{item.recordID}</td>
-        <td>{item.pDia}</td>
-        <td>{item.pHis}</td>
+        <td>{item.diagnose}</td>
+        <td>{item.history}</td>
         <td><a>Xem chi tiết</a></td>
         <td><Link to="{'/edit/' + item.id}"><Button variant="outline-warning">
           Edit
@@ -110,7 +109,6 @@ const MedicalRecord = () => {
                 <thead>
                     <tr>
                         <th >STT</th>
-                        <th >Mã hồ sơ</th>
                         <th >Chuẩn đoán</th>
                         <th >Tiểu sử</th>
                         <th>Xem đơn thuốc</th>
