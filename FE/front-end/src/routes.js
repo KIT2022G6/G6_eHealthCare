@@ -6,7 +6,6 @@ import TotalInvoice from "views/Admin/TotalInvoice";
 import MedInvoice from "views/Admin/MedInvoice";
 import Pharmacy from "views/Admin/Pharmacy";
 
-import Home from "layouts/Home";
 import Login from "layouts/Login";
 import Logout from "layouts/Logout";
 
@@ -58,13 +57,6 @@ const dashboardRoutes = [
     name: " DS Quầy thuốc",
     icon: "nc-icon nc-notes",
     component: Pharmacy,
-    layout: "/admin"
-  },
-  {
-    path: "/layouts/Home",
-    name: " Trang chủ",
-    icon: "nc-icon nc-notes",
-    component: Home,
     layout: "/admin"
   },
   {
