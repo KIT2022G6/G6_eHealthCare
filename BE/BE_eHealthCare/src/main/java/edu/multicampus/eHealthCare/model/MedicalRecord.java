@@ -15,8 +15,8 @@ public class MedicalRecord {
 	private String History;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_prescriptionID", nullable = false)
-	private Prescription prescriptionID;
+	@JoinColumn(name = "fk_precriptionID", nullable = false)
+	private Prescription precriptionID;
 
 	@OneToMany(mappedBy = "recordID", cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -26,12 +26,12 @@ public class MedicalRecord {
 		super();
 	}
 
-	public MedicalRecord(String diagnose, String history, Prescription prescriptionID,
+	public MedicalRecord(String diagnose, String history, Prescription precriptionID,
 			Set<Appointment> listAppointment) {
 		super();
 		Diagnose = diagnose;
 		History = history;
-		this.prescriptionID = prescriptionID;
+		this.precriptionID = precriptionID;
 		this.listAppointment = listAppointment;
 	}
 	
@@ -60,11 +60,11 @@ public class MedicalRecord {
 	}
 
 	public Prescription getPrescriptionID() {
-		return prescriptionID;
+		return precriptionID;
 	}
 
-	public void setPrescriptionID(Prescription prescriptionID) {
-		this.prescriptionID = prescriptionID;
+	public void setPrescriptionID(Prescription precriptionID) {
+		this.precriptionID = precriptionID;
 	}
 
 	public Set<Appointment> getListAppointment() {
