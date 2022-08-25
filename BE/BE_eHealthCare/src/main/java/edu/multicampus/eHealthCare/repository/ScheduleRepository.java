@@ -17,7 +17,7 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 //	@Query(value = "SELECT * FROM schedule WHERE s_wor >? AND s_wor <?", nativeQuery = true)
 //	public List<Schedule> findScheByDate(Date date1, Date date2);
 
-	List<Schedule> findScheduleBySchDateBetween(Date date1, Date date2);
+	List<Schedule> findScheduleByScheduleDateBetween(Date date1, Date date2);
 
 	@Query(value = "SELECT sch.id, sch.sch_date, sch.schedul eid, sch.sch_shift, doc.doctorid, doc.d_name, doc.d_age, doc.d_phone, doc.d_email FROM schedule1 sch, doctor doc WHERE sch.scheduleid = doc.fk_scheduleid AND sch.sch_date = ?;", nativeQuery = true)
 	List<Schedule> findAllDoctorBySchDate(Date vDate);

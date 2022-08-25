@@ -1,89 +1,82 @@
 package edu.multicampus.eHealthCare.model;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
-public class Department implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class Department {
 
 	@Id
-	@Column(name = "departmentID", unique = true)
-	private String depID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long departmentID;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dep_seq") 
+//	@GenericGenerator(
+//	        name = "dep_seq", 
+//	        strategy = "edu.multicampus.eHealthCare.generator.CodeGenerator", 
+//	        parameters = {
+//	        	@Parameter(name = CodeGenerator.INCREMENT_PARAM, value = "50"),
+//	            @Parameter(name = CodeGenerator.VALUE_PREFIX_PARAMETER, value = "KK_"),
+//	            @Parameter(name = CodeGenerator.NUMBER_FORMAT_PARAMETER, value = "%04d") })
+//	private String depID;
 
-	private String dName;
-	private int dCharge;
+	private String depName;
+	private int depCharge;
+	private String depDescription;
 
-	@Column(name = "dDescription")
-	private String dDes;
-
-	@JsonBackReference
-	@Fetch(FetchMode.JOIN)
 	@OneToMany(mappedBy = "departmentID", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Doctor> listDoctor;
 
-	public Long getId() {
-		return id;
+	public Department(String departmentName, int departmentCharge, String departmentDes, Set<Doctor> listDoctor) {
+		super();
+		this.depName = departmentName;
+		this.depCharge = departmentCharge;
+		this.depDescription = departmentDes;
+		this.listDoctor = listDoctor;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getDepartmentID() {
+		return departmentID;
 	}
 
-	public String getDepID() {
-		return depID;
+	public void setDepartmentID(Long departmentID) {
+		this.departmentID = departmentID;
 	}
 
-	public void setDepID(String depID) {
-		this.depID = depID;
+
+	public String getDepName() {
+		return depName;
 	}
 
-	public String getdName() {
-		return dName;
+	public void setDepName(String depName) {
+		this.depName = depName;
 	}
 
-	public void setdName(String dName) {
-		this.dName = dName;
+	public int getDepCharge() {
+		return depCharge;
 	}
 
-	public int getdCharge() {
-		return dCharge;
+	public void setDepCharge(int depCharge) {
+		this.depCharge = depCharge;
 	}
 
-	public void setdCharge(int dCharge) {
-		this.dCharge = dCharge;
+	public String getDepDescription() {
+		return depDescription;
 	}
 
-	public String getdDes() {
-		return dDes;
-	}
-
-	public void setdDes(String dDes) {
-		this.dDes = dDes;
+	public void setDepDescription(String depDescription) {
+		this.depDescription = depDescription;
 	}
 
 	public Set<Doctor> getListDoctor() {
@@ -93,27 +86,4 @@ public class Department implements Serializable {
 	public void setListDoctor(Set<Doctor> listDoctor) {
 		this.listDoctor = listDoctor;
 	}
-
-	public Department() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Department(String depID, String dName, int dCharge, String dDes, Set<Doctor> listDoctor) {
-		super();
-		this.depID = depID;
-		this.dName = dName;
-		this.dCharge = dCharge;
-		this.dDes = dDes;
-		this.listDoctor = listDoctor;
-	}
-
-	public Department(String depID, String dName, int dCharge, String dDes) {
-		super();
-		this.depID = depID;
-		this.dName = dName;
-		this.dCharge = dCharge;
-		this.dDes = dDes;
-	}
-
 }

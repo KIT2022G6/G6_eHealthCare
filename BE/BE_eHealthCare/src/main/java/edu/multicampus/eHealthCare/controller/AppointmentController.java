@@ -40,11 +40,11 @@ public class AppointmentController {
 	@PutMapping("/appointment/{id}")
 	public ResponseEntity<Appointment> updateApo(@PathVariable String id, @RequestBody Appointment apoDetails) {
 		Appointment apo = apoRepo.findAppointByAppointmentID(id);
-		apo.setpOrd(apoDetails.getpOrd());
-		apo.setpRoo(apoDetails.getpRoo());
-		apo.setpVsi(apoDetails.getpVsi());
-		apo.setDocID(apoDetails.getDocID());
-		apo.setPatID(apoDetails.getPatID());
+		apo.setOrdinalNum(apoDetails.getOrdinalNum());
+		apo.setRoom(apoDetails.getRoom());
+		apo.setVisitDate(apoDetails.getVisitDate());
+		apo.setDocterID(apoDetails.getDocterID());
+		apo.setPatientID(apoDetails.getPatientID());
 		Appointment updatedApo = apoRepo.save(apo);
 		return ResponseEntity.ok(updatedApo);
 	}

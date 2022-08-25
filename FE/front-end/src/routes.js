@@ -15,14 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import UserProfile from "views/Patient/UserProfile.js";
-import Booking from "views/Patient/Booking.js";
-import MedicalRecord from "views/Patient/MedicalRecord.js";
-import UserProfile from "views/Patiens/UserProfile.js";
-import Booking from "views/Patiens/Booking.js";
-import MedicalRecord from "views/Patiens/MedicalRecord.js";
-import History from "views/Patiens/History.js";
-
 import Medicine from "views/Drugstores/Medicine";
 import DrugstoresProfile from "views/Drugstores/DrugstoresProfile";
 import MedicalRecord1 from "views/Drugstores/MedicalRecord";
@@ -31,101 +23,49 @@ import MedicalRecord2 from "views/Doctor/MedicalRecord";
 import MakeMedicalRecords from "views/Doctor/MakeMedicalRecords";
 import Schedule from "views/Doctor/Schedule";
 import MedicalExaminationList from "views/Doctor/MedicalExaminationList";
-// import Insurance from "views/Admin/Insurance";
-import DepartmentTest from "views/Admin/DepartmentTest";
+
+import Insurance from "views/Admin/Insurance";
+import Prescription from "views/Admin/Prescription";
+import Doctor from "views/Admin/Doctor";
+import TotalInvoice from "views/Admin/TotalInvoice";
+import MedInvoice from "views/Admin/MedInvoice";
+import Pharmacy from "views/Admin/Pharmacy";
+
+
+import Login from "layouts/Login";
+import Logout from "layouts/Logout";
 
 const dashboardRoutes = [
   {
-    path: "/Patiens/UserProfile",
-    name: "Thông tin cá nhân",
-    icon: "nc-icon nc-circle-09",
-    component: UserProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/Patiens/Booking",
-    name: "Đặt lịch khám",
-    icon: "nc-icon nc-tap-01",
-    component: Booking,
-    layout: "/admin"
-  },
-  {
-    path: "/Patiens/MedicalRecord",
-    name: "Hồ sơ bệnh án của tôi",
-    icon: "nc-icon nc-notes",
-    component: MedicalRecord,
-    layout: "/admin"
-  },
-  {
-    path: "/Patiens/History",
-    name: "Lịch sử khám bệnh",
-    icon: "nc-icon nc-notes",
-    component:History,
-    layout: "/admin"
-  },
-  {
-    path: "/Drugstores/DrugstoresProfile",
-    name: "Thông tin cá nhân",
-    icon: "nc-icon nc-circle-09",
-    component: DrugstoresProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/Drugstores/Medicine",
-    name: "DS các loại thuốc",
-    icon: "nc-icon nc-notes",
-    component: Medicine,
-    layout: "/admin"
-  },
-  {
-    path: "/Drugstores/MedicalRecord",
-    name: "DS hồ sơ bệnh án",
-    icon: "nc-icon nc-notes",
-    component: MedicalRecord1,
-    layout: "/admin"
-  },
-  {
-    path: "/Doctor/DoctorProfile",
-    name: "Thông tin cá nhân",
-    icon: "nc-icon nc-circle-09",
-    component: DoctorProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/Doctor/MedicalRecord",
-    name: "DS hồ sơ bệnh án",
-    icon: "nc-icon nc-notes",
-    component: MedicalRecord2,
-    layout: "/admin"
-  },
-  {
-    path: "/Doctor/MakeMedicalRecords",
-    name: "Lập hồ sơ bệnh án",
-    icon: "nc-icon nc-notes",
-    component: MakeMedicalRecords,
-    layout: "/admin"
-  },
-  {
-    path: "/Doctor/Schedule",
-    name: "Lịch làm việc",
-    icon: "nc-icon nc-notes",
-    component: Schedule,
-    layout: "/admin"
-  },
-  {
-    path: "/Doctor/MedicalExaminationList",
-    name: "DS Lịch khám bệnh",
-    icon: "nc-icon nc-notes",
-    component: MedicalExaminationList,
-    layout: "/admin"
-  },
-  {
     path: "/Admin/Department",
-    name: "Khoa khám",
+    path: "/insurance",
+    name: "Bảo hiểm",
     icon: "nc-icon nc-notes",
-    component: DepartmentTest,
+    component: Insurance,
     layout: "/admin"
-  }
+  },
+  {
+    path: "/layouts/Login",
+    name: " Đăng nhập",
+    icon: "nc-icon nc-notes",
+    component: Login,
+    layout: "/admin"
+  },
+  {
+    path: "/layouts/Logout",
+    name: " Đăng xuất",
+    icon: "nc-icon nc-notes",
+    component: Logout,
+    layout: "/admin"
+  },
+  {
+    path: "/edit/:depID",
+    layout: "/admin"
+  },
+  {
+    path: "/edit/new",
+    layout: "/admin"
+  },
 ];
 
 export default dashboardRoutes;

@@ -1,4 +1,68 @@
-const InsuranceEdit = () => {
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Button, Form } from "react-bootstrap";
+
+const DepartmentEdit = () => {
+    const params = useParams();
+    const [product, setProduct] = useState(null);
+    const [category, setCategory] = useState(null);
+    const [countries, setCountries] = useState(null);
+
+    useEffect(() => {
+        if (params.depID != null && params.depID != 'new') {
+            let product_url =
+                'http://localhost:8080/api/v1/department/' + params.depID;
+
+            fetch(product_url)
+                .then((res) => res.json())
+                .then((data) => {
+                    setProduct(data);
+                });
+        } else {
+            let initData = {};
+            setProduct(initData);
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []);
+
+    const saveProduct = () => {
+        console.log(product);
+        let method = 'POST';
+        let id = '';
+        if (product.id) {
+            method = 'PUT';
+            id = product.depID;
+        }
+
+        const requestOptions = {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product),
+        };
+        fetch(
+            'http://localhost:8080/api/v1/department/' + id,
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("DONE REQUEST");
+                // navigate(-1);
+            });
+    };
+
+    const handleChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        let data = { ...product };
+        data[name] = value;
+        setProduct(data);
+    };
     return (
         <>
             {product != null ? (
@@ -6,34 +70,33 @@ const InsuranceEdit = () => {
                     <div className="container">
                         <div className="container">
                             <div className="col-lg-10 col-md-12 mx-auto col-sm-12">
-                                <h1 className="text-center m3">{product.id ? 'EDIT ' : 'NEW '}</h1>
+                                <h1 className="text-center m3">{product.depID ? 'EDIT ' : 'NEW '}</h1>
                                 <br />
                                 <div className="table-responsive">
                                     <table className="table table-user-information">
                                         <tbody>
                                             <tr>
-                                                {product.id ? (
-                                                    <td>
-                                                        <strong>STT</strong>
-                                                    </td>
-                                                ) : null}
-                                                <td className="text-primary">
-                                                    {product.id}
-                                                    </td>
-                                            </tr>
-                                            <tr>
                                                 <td>
                                                     <strong>Mã khoa khám</strong>
                                                 </td>
-                                                <td>
+                                                {product.id ? (
+                                                    <td>
+                                                        <input
+                                                            type="text"
+                                                            className="form-control"
+                                                            value={product.depID}
+                                                            name="depID"
+                                                            readOnly
+                                                        ></input>
+                                                    </td>) : <td>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.name}
-                                                        name="name"
+                                                        value={product.depID}
+                                                        name="depID"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
-                                                </td>
+                                                </td>}
                                             </tr>
                                             <tr>
                                                 <td>
@@ -43,8 +106,8 @@ const InsuranceEdit = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.price}
-                                                        name="price"
+                                                        value={product.dName}
+                                                        name="dName"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>
@@ -57,8 +120,8 @@ const InsuranceEdit = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.price}
-                                                        name="price"
+                                                        value={product.dCharge}
+                                                        name="dCharge"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>
@@ -68,19 +131,13 @@ const InsuranceEdit = () => {
                                                     <strong>Mô tả</strong>
                                                 </td>
                                                 <td>
-                                                    <select
-                                                        name="category"
-                                                        value={product.category}
-                                                        onChange={(e) => {
-                                                            handleChange(e);
-                                                        }}
-                                                    >
-                                                        {category != null
-                                                            ? category.map((item) => (
-                                                                <option value={item.category}>{item.category}</option>
-                                                            ))
-                                                            : 'loading'}
-                                                    </select>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        value={product.dDes}
+                                                        name="dDes"
+                                                        onChange={(e) => handleChange(e)}
+                                                    ></input>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -111,4 +168,4 @@ const InsuranceEdit = () => {
     );
 };
 
-export default InsuranceEdit
+export default DepartmentEdit
