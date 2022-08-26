@@ -3,7 +3,6 @@ import Insurance from "views/Admin/Insurance";
 import Prescription from "views/Admin/Prescription";
 import Doctor from "views/Admin/Doctor";
 import TotalInvoice from "views/Admin/TotalInvoice";
-import MedInvoice from "views/Admin/MedInvoice";
 import Pharmacy from "views/Admin/Pharmacy";
 
 const dashboardRoutes = [
@@ -40,13 +39,6 @@ const dashboardRoutes = [
     name: " DS Hóa đơn",
     icon: "nc-icon nc-notes",
     component: TotalInvoice,
-    layout: "/admin"
-  },
-  {
-    path: "/medInvoice",
-    name: " DS Hóa đơn thuốc",
-    icon: "nc-icon nc-notes",
-    component: MedInvoice,
     layout: "/admin"
   },
   {
