@@ -54,9 +54,8 @@ const TotalInvoice = () => {
     if (currentItems != null) {
         listTotalInvoice = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.invoiceID}</td>
-                <td>{item.tPrint}</td>
+                <td>{item.printDate}</td>
                 <td><a>Xem chi tiết</a></td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
@@ -124,7 +123,6 @@ const TotalInvoice = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã hóa đơn</th>
                         <th>Ngày</th>
                         <th>Xem chi tiết</th>
                     </tr>

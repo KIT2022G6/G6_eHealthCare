@@ -54,14 +54,11 @@ const Doctor = () => {
     if (currentItems != null) {
         listDoctor = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.doctorID}</td>
                 <td>{item.dName}</td>
-                <td>{item.dPhone}</td>
-                <td>{item.dEmail}</td>
-                <td>{item.dUsername}</td>
-                <td>{item.dPassword}</td>
-                <td>{item.dAge}</td>
+                <td>{item.docPhone}</td>
+                <td>{item.docEmail}</td>
+                <td>{item.docAge}</td>
                 <td><Link to="{'/edit/' + item.id}"><Button variant="outline-warning">
                     Edit
                 </Button></Link></td>
@@ -113,12 +110,9 @@ const Doctor = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã bác sĩ</th>
                         <th>Tên bác sĩ</th>
                         <th>SĐT</th>
                         <th>Email</th>
-                        <th>Tên đăng nhập</th>
-                        <th>Mật Khẩu</th>
                         <th>Tuổi</th>
                     </tr>
                 </thead>

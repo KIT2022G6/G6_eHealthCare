@@ -12,21 +12,21 @@ const dashboardRoutes = [
     layout: "/patient"
   },
   {
-    path: "/booking",
+    path: "/Booking",
     name: "Đặt lịch khám",
     icon: "nc-icon nc-tap-01",
     component: Booking,
     layout: "/patient"
   },
   {
-    path: "/medicalRecord",
+    path: "/MedicalRecord",
     name: "Bệnh án của tôi",
     icon: "nc-icon nc-notes",
     component: MedicalRecord,
     layout: "/patient"
   },
   {
-    path: "/history",
+    path: "/History",
     name: "Lịch sử khám bệnh",
     icon: "nc-icon nc-notes",
     component:History,

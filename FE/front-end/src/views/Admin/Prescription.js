@@ -54,11 +54,10 @@ const Prescription = () => {
     if (currentItems != null) {
         listPrescription = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
-                <td>{item.precriptionID}</td>
-                <td>{item.pAmo}</td>
-                <td>{item.pDos}</td>
-                <td>{item.pDet}</td>
+                <td>{item.prescriptionID}</td>
+                <td>{item.preAmount}</td>
+                <td>{item.preDosage}</td>
+                <td>{item.preTime}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -125,7 +124,6 @@ const Prescription = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã đơn thuốc</th>
                         <th>Số lượng (Hộp)</th>
                         <th>Liều lượng (Viên)</th>
                         <th>Thời gian uống</th>

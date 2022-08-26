@@ -54,12 +54,9 @@ const Pharmacy = () => {
     if (currentItems != null) {
         listPharmacy = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.pharmacyID}</td>
-                <td>{item.phUsername}</td>
-                <td>{item.phPassword}</td>
-                <td>{item.phName}</td>
-                <td>{item.phDes}</td>
+                <td>{item.pharName}</td>
+                <td>{item.pharDescription}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -128,9 +125,6 @@ const Pharmacy = () => {
                         <th>STT</th>
                         <th>Mã quầy thuốc</th>
                         <th>Tên đăng nhập</th>
-                        <th>Mật khẩu</th>
-                        <th>Tên</th>
-                        <th>Địa chỉ</th>
                     </tr>
                 </thead>
                 <tbody>
