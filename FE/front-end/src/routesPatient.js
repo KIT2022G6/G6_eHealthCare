@@ -5,7 +5,7 @@ import History from "views/Patient/History.js";
 
 const dashboardRoutes = [
   {
-    path: "/",
+    path: "/profile",
     name: "Thông tin cá nhân",
     icon: "nc-icon nc-circle-09",
     component: Profile,

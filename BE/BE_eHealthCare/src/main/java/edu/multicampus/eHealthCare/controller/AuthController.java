@@ -72,8 +72,9 @@ public class AuthController {
 				encoder.encode(signUpRequest.getPassword()));
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
+		
 		if (strRoles == null) {
-			Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+			Role userRole = roleRepository.findByName(ERole.ROLE_USER)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 			roles.add(userRole);
 		} else {
@@ -84,22 +85,46 @@ public class AuthController {
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 					roles.add(adminRole);
 					break;
-				case "doctor":
-					Role docRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
+				case "mod":
+					Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(docRole);
-					break;
-				case "pharmacy":
-					Role phRole = roleRepository.findByName(ERole.ROLE_PHARMACY)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(phRole);
+					roles.add(modRole);
 					break;
 				default:
-					Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 					roles.add(userRole);
 				}
 			});
+		
+//		if (strRoles == null) {
+//			Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+//					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+//			roles.add(userRole);
+//		} else {
+//			strRoles.forEach(role -> {
+//				switch (role) {
+//				case "admin":
+//					Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+//							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+//					roles.add(adminRole);
+//					break;
+//				case "doctor":
+//					Role docRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
+//							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+//					roles.add(docRole);
+//					break;
+//				case "pharmacy":
+//					Role phRole = roleRepository.findByName(ERole.ROLE_PHARMACY)
+//							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+//					roles.add(phRole);
+//					break;
+//				default:
+//					Role userRole = roleRepository.findByName(ERole.ROLE_PATIENT)
+//							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+//					roles.add(userRole);
+//				}
+//			});
 		}
 		user.setRoles(roles);
 		userRepository.save(user);

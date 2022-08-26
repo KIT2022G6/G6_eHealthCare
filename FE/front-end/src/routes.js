@@ -5,6 +5,7 @@ import Doctor from "views/Admin/Doctor";
 import TotalInvoice from "views/Admin/TotalInvoice";
 import MedInvoice from "views/Admin/MedInvoice";
 import Pharmacy from "views/Admin/Pharmacy";
+import DepartmentEdit from "views/Admin/EditDepartment";
 
 const dashboardRoutes = [
   {
@@ -57,11 +58,12 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/edit/:depID",
+    path: "/edit/:departmentID",
     layout: "/admin"
   },
   {
     path: "/edit/new",
+    component: DepartmentEdit,
     layout: "/admin"
   },
 ];

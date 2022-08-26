@@ -9,9 +9,9 @@ const DepartmentEdit = () => {
     const [countries, setCountries] = useState(null);
 
     useEffect(() => {
-        if (params.depID != null && params.depID != 'new') {
+        if (params.departmentID != null && params.departmentID != 'new') {
             let product_url =
-                'http://localhost:8080/api/v1/department/' + params.depID;
+                'http://localhost:8080/api/v1/department/' + params.departmentID;
 
             fetch(product_url)
                 .then((res) => res.json())
@@ -35,7 +35,7 @@ const DepartmentEdit = () => {
         let id = '';
         if (product.id) {
             method = 'PUT';
-            id = product.depID;
+            id = product.departmentID;
         }
 
         const requestOptions = {
@@ -70,7 +70,7 @@ const DepartmentEdit = () => {
                     <div className="container">
                         <div className="container">
                             <div className="col-lg-10 col-md-12 mx-auto col-sm-12">
-                                <h1 className="text-center m3">{product.depID ? 'EDIT ' : 'NEW '}</h1>
+                                <h1 className="text-center m3">{product.departmentID ? 'EDIT ' : 'NEW '}</h1>
                                 <br />
                                 <div className="table-responsive">
                                     <table className="table table-user-information">
@@ -84,16 +84,16 @@ const DepartmentEdit = () => {
                                                         <input
                                                             type="text"
                                                             className="form-control"
-                                                            value={product.depID}
-                                                            name="depID"
+                                                            value={product.departmentID}
+                                                            name="departmentID"
                                                             readOnly
                                                         ></input>
                                                     </td>) : <td>
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.depID}
-                                                        name="depID"
+                                                        value={product.departmentID}
+                                                        name="departmentID"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>}
@@ -106,8 +106,8 @@ const DepartmentEdit = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.dName}
-                                                        name="dName"
+                                                        value={product.depName}
+                                                        name="depName"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>
@@ -120,8 +120,8 @@ const DepartmentEdit = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.dCharge}
-                                                        name="dCharge"
+                                                        value={product.depCharge}
+                                                        name="depCharge"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>
@@ -134,8 +134,8 @@ const DepartmentEdit = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        value={product.dDes}
-                                                        name="dDes"
+                                                        value={product.depDescription}
+                                                        name="depDescription"
                                                         onChange={(e) => handleChange(e)}
                                                     ></input>
                                                 </td>
@@ -150,7 +150,7 @@ const DepartmentEdit = () => {
                                             Save
                                         </Button>
                                         <span> </span>
-                                        <Link to="/admin">
+                                        <Link to="/admin/department">
                                             <Button variant="outline-danger">
                                                 Cancel
                                             </Button>

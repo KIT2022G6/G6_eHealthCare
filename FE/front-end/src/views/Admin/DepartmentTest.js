@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import DepartmentService from '../../services/DepartmentService'
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -67,14 +66,14 @@ const DepartmentTest = () => {
     if (currentItems != null) {
         listDepartment = currentItems.map((item, id) => (
             <tr>
-                <td>{item.depID}</td>
-                <td>{item.dName}</td>
-                <td>{item.dCharge}</td>
-                <td>{item.dDes}</td>
-                <td><Link to={'./edit/' + item.depID}><Button variant="outline-warning">
+                <td>{item.departmentID}</td>
+                <td>{item.depName}</td>
+                <td>{item.depCharge}</td>
+                <td>{item.depDescription}</td>
+                <td><Link to={'./edit/' + item.departmentID}><Button variant="outline-warning">
                     Edit
                 </Button></Link></td>
-                <td><Button variant="outline-danger" onClick={() => deleteUser(item.depID)}>Delete</Button></td>
+                <td><Button variant="outline-danger" onClick={() => deleteUser(item.departmentID)}>Delete</Button></td>
             </tr>
         )
         )

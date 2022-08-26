@@ -14,6 +14,7 @@ import AdminLayout from "layouts/Admin.js";
 import PatientLayout from "layouts/Patient.js";
 import DoctorLayout from "layouts/Doctor.js";
 import PharmacyLayout from "layouts/Pharmacy.js";
+import DepartmentEdit from "views/Admin/EditDepartment";
 
 const App = () => {
     const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -99,7 +100,8 @@ const App = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} /> */}
                     <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-
+                    <Route path="/edit/:id" element={<DepartmentEdit/>}/>
+                     <Route path="/admin/edit/new" element={<DepartmentEdit/>}/>
                     {/* <Redirect from="/" to="/admin/dashboard" />
                     <Redirect from="/" to="/dashboard" /> */}
 
