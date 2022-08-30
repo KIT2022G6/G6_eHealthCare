@@ -30,8 +30,8 @@ public class PrescriptionController {
 	}
 
 	@GetMapping("/prescription/{id}")
-	public ResponseEntity<Prescription> getDoctorById(@PathVariable String id) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
+	public ResponseEntity<Prescription> getDoctorById(@PathVariable Long id) {
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		return ResponseEntity.ok(pre);
 	}
 
@@ -41,19 +41,19 @@ public class PrescriptionController {
 	}
 
 	@PutMapping("/prescription/{id}") 
-	public ResponseEntity<Prescription> updatePre(@PathVariable String id, @RequestBody Prescription preDetails) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
-		pre.setpAmo(preDetails.getpAmo());
-		pre.setpDet(preDetails.getpDet());
-		pre.setpDos(preDetails.getpDos());
+	public ResponseEntity<Prescription> updatePre(@PathVariable Long id, @RequestBody Prescription preDetails) {
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
+		pre.setPreAmount(preDetails.getPreAmount());
+		pre.setPreTime(preDetails.getPreTime());
+		pre.setPreDosage(preDetails.getPreDosage());
 		Prescription updatedPre = preRepo.save(pre);
 		return ResponseEntity.ok(updatedPre);
 		
 	}
 
 	@DeleteMapping("/prescription/{id}") 
-	public ResponseEntity<Map<String, Boolean>> deletePre(@PathVariable String id) {
-		Prescription pre = preRepo.findPrescriptionByPrecriptionID(id);
+	public ResponseEntity<Map<String, Boolean>> deletePre(@PathVariable Long id) {
+		Prescription pre = preRepo.findPrescriptionByPrescriptionID(id);
 		preRepo.delete(pre);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);

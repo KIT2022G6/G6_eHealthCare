@@ -1,86 +1,70 @@
 package edu.multicampus.eHealthCare.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 public class Prescription {
-
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@Id
-	@Column(name = "prescriptionID", unique = true)
-	private String precriptionID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long prescriptionID;
+	private int preAmount, preDosage;
+	private String preTime;
 
-	private int pAmo, pDos;
-	private String pDet;
-
-    @OneToMany(mappedBy = "recordID", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "recordID", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<MedicalRecord> listRecord;
-    
-	@OneToMany(mappedBy = "precriptionID", cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "prescriptionID", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<MedInvoice> listMedInvoice;
 
-	public Prescription(Long id, String precriptionID, int pAmo, int pDos, String pDet, Set<MedicalRecord> listRecord,
+	public Prescription() {
+		super();
+	}
+
+	public Prescription(int preAmount, int preDosage, String preTime, Set<MedicalRecord> listRecord,
 			Set<MedInvoice> listMedInvoice) {
 		super();
-		this.id = id;
-		this.precriptionID = precriptionID;
-		this.pAmo = pAmo;
-		this.pDos = pDos;
-		this.pDet = pDet;
+		this.preAmount = preAmount;
+		this.preDosage = preDosage;
+		this.preTime = preTime;
 		this.listRecord = listRecord;
 		this.listMedInvoice = listMedInvoice;
 	}
 
-	public Prescription() {
+	public Long getPrescriptionID() {
+		return prescriptionID;
 	}
 
-	public Long getId() {
-		return id;
+	public void setPrescriptionID(Long prescriptionID) {
+		this.prescriptionID = prescriptionID;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public int getPreAmount() {
+		return preAmount;
 	}
 
-	public String getPrecriptionID() {
-		return precriptionID;
+	public void setPreAmount(int preAmount) {
+		this.preAmount = preAmount;
 	}
 
-	public void setPrecriptionID(String precriptionID) {
-		this.precriptionID = precriptionID;
+	public int getPreDosage() {
+		return preDosage;
 	}
 
-	public int getpAmo() {
-		return pAmo;
+	public void setPreDosage(int preDosage) {
+		this.preDosage = preDosage;
 	}
 
-	public void setpAmo(int pAmo) {
-		this.pAmo = pAmo;
+	public String getPreTime() {
+		return preTime;
 	}
 
-	public int getpDos() {
-		return pDos;
-	}
-
-	public void setpDos(int pDos) {
-		this.pDos = pDos;
-	}
-
-	public String getpDet() {
-		return pDet;
-	}
-
-	public void setpDet(String pDet) {
-		this.pDet = pDet;
+	public void setPreTime(String preTime) {
+		this.preTime = preTime;
 	}
 
 	public Set<MedicalRecord> getListRecord() {
@@ -99,5 +83,4 @@ public class Prescription {
 		this.listMedInvoice = listMedInvoice;
 	}
 
-	
 }

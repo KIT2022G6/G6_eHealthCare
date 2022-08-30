@@ -44,8 +44,8 @@ public class MedicalRecordController {
 	@PutMapping("/record/{id}") //OK
 	public ResponseEntity<MedicalRecord> updateDoc(@PathVariable String id, @RequestBody MedicalRecord recDetails) {
 		MedicalRecord rec = recordRepo.findMedicalRecordByRecordID(id);
-		rec.setpDia(recDetails.getpDia());
-		rec.setpHis(recDetails.getpHis());
+		rec.setDiagnose(recDetails.getDiagnose());
+		rec.setHistory(recDetails.getHistory());
 		rec.setListAppointment(recDetails.getListAppointment());
 		rec.setPrescriptionID(recDetails.getPrescriptionID());
 		MedicalRecord updatedRec = recordRepo.save(rec);

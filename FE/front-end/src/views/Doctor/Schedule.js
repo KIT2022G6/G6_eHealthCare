@@ -54,10 +54,9 @@ const Schedule = () => {
   if (currentItems != null) {
     listSchedule = currentItems.map((item, id) => (
       <tr>
-        <td>{item.id}</td>
-        <td>{item.schID}</td>
-        <td>{item.schDate}</td>
-        <td>{item.schShift}</td>
+        <td>{item.scheduleID}</td>
+        <td>{item.scheduleDate}</td>
+        <td>{item.scheduleShift}</td>
         <td><Link to="{'/edit/' + item.id}"><Button variant="outline-warning">
           Edit
         </Button></Link></td>
@@ -110,10 +109,8 @@ const Schedule = () => {
                 <thead>
                     <tr>
                         <th >STT</th>
-                        <th >Name</th>
-                        <th >Price</th>
-                        <th >Category</th>
-
+                        <th >Ngày làm việc</th>
+                        <th >Số bác sĩ</th>
                     </tr>
                 </thead>
                 <tbody>

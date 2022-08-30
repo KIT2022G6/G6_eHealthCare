@@ -1,90 +1,93 @@
 package edu.multicampus.eHealthCare.model;
 
-
-
-
 import javax.persistence.*;
+
+
 import java.sql.Date;
-import java.util.Set;
 
 @Entity
 public class Appointment {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	@Id
-	@Column(name = "appointmentID", unique = true)
-	private String appointmentID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long appointmentID;
 
-	private int pOrd, pRoo;
-	private Date pVsi;
-
-	@ManyToOne
-	@JoinColumn(name = "doctorID")
-	private Doctor docID;
+	private int ordinalNum, room;
+	private Date visitDate;
 
 	@ManyToOne
-	@JoinColumn(name = "patientID")
-	private Patient patID;
+	@JoinColumn(name = "fk_doctorID")
+	private Doctor docterID;
 
 	@ManyToOne
-	@JoinColumn(name = "recordID")
+	@JoinColumn(name = "fk_patientID")
+	private Patient patientID;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_recordID")
 	private MedicalRecord recordID;
 
-	public Long getId() {
-		return id;
+	public Appointment() {
+		super();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Appointment(int ordinalNum, int room, Date visitDate, Doctor docterID, Patient patientID,
+			MedicalRecord recordID) {
+		super();
+		this.ordinalNum = ordinalNum;
+		this.room = room;
+		this.visitDate = visitDate;
+		this.docterID = docterID;
+		this.patientID = patientID;
+		this.recordID = recordID;
 	}
 
-	public String getAppointmentID() {
+	public Long getAppointmentID() {
 		return appointmentID;
 	}
 
-	public void setAppointmentID(String appointmentID) {
+	public void setAppointmentID(Long appointmentID) {
 		this.appointmentID = appointmentID;
 	}
 
-	public int getpOrd() {
-		return pOrd;
+	public int getOrdinalNum() {
+		return ordinalNum;
 	}
 
-	public void setpOrd(int pOrd) {
-		this.pOrd = pOrd;
+	public void setOrdinalNum(int ordinalNum) {
+		this.ordinalNum = ordinalNum;
 	}
 
-	public int getpRoo() {
-		return pRoo;
+	public int getRoom() {
+		return room;
 	}
 
-	public void setpRoo(int pRoo) {
-		this.pRoo = pRoo;
+	public void setRoom(int room) {
+		this.room = room;
 	}
 
-	public Date getpVsi() {
-		return pVsi;
+	public Date getVisitDate() {
+		return visitDate;
 	}
 
-	public void setpVsi(Date pVsi) {
-		this.pVsi = pVsi;
+	public void setVisitDate(Date visitDate) {
+		this.visitDate = visitDate;
 	}
 
-	public Doctor getDocID() {
-		return docID;
+	public Doctor getDocterID() {
+		return docterID;
 	}
 
-	public void setDocID(Doctor docID) {
-		this.docID = docID;
+	public void setDocterID(Doctor docterID) {
+		this.docterID = docterID;
 	}
 
-	public Patient getPatID() {
-		return patID;
+	public Patient getPatientID() {
+		return patientID;
 	}
 
-	public void setPatID(Patient patID) {
-		this.patID = patID;
+	public void setPatientID(Patient patientID) {
+		this.patientID = patientID;
 	}
 
 	public MedicalRecord getRecordID() {
@@ -94,6 +97,4 @@ public class Appointment {
 	public void setRecordID(MedicalRecord recordID) {
 		this.recordID = recordID;
 	}
-	
-	
 }

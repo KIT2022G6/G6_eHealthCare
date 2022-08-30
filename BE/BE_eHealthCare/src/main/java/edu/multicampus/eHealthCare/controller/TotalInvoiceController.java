@@ -38,7 +38,7 @@ public class TotalInvoiceController {
         TotalInvoice tot = totalInvoiceRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("TotalInvoice not found with id: " + id));
         tot.setInvoiceID(totalInvoice.getInvoiceID());
-        tot.settPrint(totalInvoice.gettPrint());
+        tot.setPrintDate(totalInvoice.getPrintDate());
         tot.setAppointmentID(totalInvoice.getAppointmentID());
         tot.setMedInvoiceID(totalInvoice.getMedInvoiceID());
         tot.setPharmacyID(totalInvoice.getPharmacyID());

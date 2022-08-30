@@ -40,7 +40,7 @@ public class MedInvoiceController {
         MedInvoice medi = medInvoiceRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("MedInvoice not found with id: " + id));
         medi.setMedInvoiceID(medInvoice.getMedInvoiceID());
-        medi.setPrecriptionID(medInvoice.getPrecriptionID());
+        medi.setPrescriptionID(medInvoice.getPrescriptionID());
         medi.setMedicineID(medInvoice.getMedicineID());
         MedInvoice updateMedInvoice= medInvoiceRepository.save(medi);
         return ResponseEntity.ok(updateMedInvoice);

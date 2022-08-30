@@ -1,7 +1,5 @@
 package edu.multicampus.eHealthCare.model;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -9,43 +7,41 @@ import javax.persistence.*;
 @Entity
 @ToString
 public class MedInvoice {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	@Id
-	@Column(name = "medInvoiceID", nullable = false)
-	private String medInvoiceID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long medInvoiceID;
+	@ManyToOne
+	@JoinColumn(name = "fk_prescriptionID")
+	private Prescription prescriptionID;
 
 	@ManyToOne
-	@JoinColumn(name = "precriptionID")
-	private Prescription precriptionID;
-
-	@ManyToOne
-	@JoinColumn(name = "medicineID")
+	@JoinColumn(name = "fk_medicineID")
 	private Medicine medicineID;
 
-	public Long getId() {
-		return id;
+	public MedInvoice() {
+		super();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public MedInvoice(Prescription prescriptionID, Medicine medicineID) {
+		super();
+		this.prescriptionID = prescriptionID;
+		this.medicineID = medicineID;
 	}
 
-	public String getMedInvoiceID() {
+	public Long getMedInvoiceID() {
 		return medInvoiceID;
 	}
 
-	public void setMedInvoiceID(String medInvoiceID) {
+	public void setMedInvoiceID(Long medInvoiceID) {
 		this.medInvoiceID = medInvoiceID;
 	}
 
-	public Prescription getPrecriptionID() {
-		return precriptionID;
+	public Prescription getPrescriptionID() {
+		return prescriptionID;
 	}
 
-	public void setPrecriptionID(Prescription precriptionID) {
-		this.precriptionID = precriptionID;
+	public void setPrescriptionID(Prescription prescriptionID) {
+		this.prescriptionID = prescriptionID;
 	}
 
 	public Medicine getMedicineID() {
@@ -55,13 +51,5 @@ public class MedInvoice {
 	public void setMedicineID(Medicine medicineID) {
 		this.medicineID = medicineID;
 	}
-
-	public MedInvoice() {
-	}
-
-	public MedInvoice(String medInvoiceID, Prescription precriptionID, Medicine medicineID) {
-		this.medInvoiceID = medInvoiceID;
-		this.precriptionID = precriptionID;
-		this.medicineID = medicineID;
-	}
+	
 }

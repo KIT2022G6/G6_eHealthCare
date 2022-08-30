@@ -55,12 +55,11 @@ const Medicine = () => {
     if (currentItems != null) {
         listMedicine = currentItems.map((item, id) => (
             <tr>
-                <td>{item.id}</td>
                 <td>{item.medicineID}</td>
-                <td>{item.mName}</td>
-                <td>{item.mExp}</td>
-                <td>{item.mSto}</td>
-                <td>{item.mPri}</td>
+                <td>{item.medName}</td>
+                <td>{item.medExp}</td>
+                <td>{item.medStorage}</td>
+                <td>{item.medPrice}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>
@@ -127,7 +126,6 @@ const Medicine = () => {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã loại thuốc</th>
                         <th>Tên loại thuốc</th>
                         <th>Hạn sử dụng</th>
                         <th>Số lượng</th>

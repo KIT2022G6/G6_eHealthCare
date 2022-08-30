@@ -56,9 +56,9 @@ const Insurance = () => {
         listInsurance = currentItems.map((item, id) => (
             <tr>
                 <td>{item.id}</td>
-                <td>{item.iDes}</td>
-                <td>{item.insID}</td>
-                <td>{item.iName}</td>
+                <td>{item.insuranceID}</td>
+                <td>{item.insName}</td>
+                <td>{item.insDes}</td>
                 {/* <td>{item.price}</td>
                 <td>{item.category}</td>
                 <td>{item.details_shorts}</td>

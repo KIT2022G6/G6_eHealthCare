@@ -36,25 +36,25 @@ public class DepartmentController {
 	}
 
 	@GetMapping("/department/{id}") //OK
-	public ResponseEntity<Department> getDepartmentById(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepID(id);
+	public ResponseEntity<Department> getDepartmentById(@PathVariable Long id) {
+		Department dep = depRepository.findDepByDepartmentID(id);
 
 		return ResponseEntity.ok(dep);
 	}
 
-	@PutMapping("/department/{id}") //OK
-	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
-		Department dep = depRepository.findDepByDepID(id);
-		dep.setdName(depDetails.getdName());
-		dep.setdCharge(depDetails.getdCharge());
-		dep.setdDes(depDetails.getdDes());
-		Department updatedDep = depRepository.save(dep);
-		return ResponseEntity.ok(updatedDep);
-	}
+//	@PutMapping("/department/{id}") //OK
+//	public ResponseEntity<Department> updateDep(@PathVariable String id, @RequestBody Department depDetails) {
+//		Department dep = depRepository.findDepByDepID(id);
+//		dep.setdName(depDetails.getdName());
+//		dep.setdCharge(depDetails.getdCharge());
+//		dep.setdDes(depDetails.getdDes());
+//		Department updatedDep = depRepository.save(dep);
+//		return ResponseEntity.ok(updatedDep);
+//	}
 
 	@DeleteMapping("/department/{id}") //OK
-	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable String id) {
-		Department dep = depRepository.findDepByDepID(id);
+	public ResponseEntity<Map<String, Boolean>> deleteDep(@PathVariable Long id) {
+		Department dep = depRepository.findDepByDepartmentID(id);
 		depRepository.delete(dep);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
